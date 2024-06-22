@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
   };
   // update profile
   const updateUserProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
+    return updateProfile(user, {
       displayName: name,
       photoURL: photo,
     });
@@ -60,18 +60,9 @@ const AuthProvider = ({ children }) => {
     return updatePassword(user, newPassword);
   };
   // send a password reset email
-  const requestPassReset = async (email) => {
+  const requestPassReset = (email) => {
     setLoading(true);
-    return await sendPasswordResetEmail(auth, email)
-      .then(() => {
-        console.log("Password reset email sent successfully");
-        setLoading(false);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log({ errorCode, errorMessage });
-      });
+    return sendPasswordResetEmail(auth, email);
   };
   // Log out
   const logOut = () => {
@@ -108,6 +99,6 @@ const AuthProvider = ({ children }) => {
   );
 };
 AuthProvider.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.element,
 };
 export default AuthProvider;

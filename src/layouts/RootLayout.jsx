@@ -1,9 +1,15 @@
 import { Outlet } from "react-router-dom";
+import FloatingNav from "../components/Navbar/FloatingNav";
 
 const RootLayout = () => {
   return (
     <div>
-      <Outlet />
+      <div>
+        <FloatingNav />
+      </div>
+      <div className="h-full">
+        <Outlet />
+      </div>
     </div>
   );
 };
