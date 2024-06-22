@@ -60,9 +60,9 @@ const AuthProvider = ({ children }) => {
     return updatePassword(user, newPassword);
   };
   // send a password reset email
-  const requestPassReset = (email) => {
+  const requestPassReset = async (email) => {
     setLoading(true);
-    return sendPasswordResetEmail(auth, email)
+    return await sendPasswordResetEmail(auth, email)
       .then(() => {
         console.log("Password reset email sent successfully");
         setLoading(false);
