@@ -8,10 +8,10 @@ const RootLayout = () => {
       <div>
         <FloatingNav />
       </div>
-      <div className="h-full pt-6 md:pt-20">
+      <div className="h-full">
         <Outlet />
       </div>
-      <div className="mt-10">
+      <div>
         <Footer />
       </div>
     </div>

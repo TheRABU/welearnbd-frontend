@@ -1,0 +1,5 @@
+.backgroundImg {
+  background-image: url("https://img.freepik.com/free-vector/dark-hexagonal-background-with-gradient-color_79603-1410.jpg?w=740&t=st=1719170309~exp=1719170909~hmac=11430efd65f75696ffc0fe18ff82195425d55aea5ccd77f346816aa36926014f");
+
+  object-fit: fill;
+}

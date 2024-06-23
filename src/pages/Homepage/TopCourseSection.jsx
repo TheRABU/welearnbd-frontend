@@ -5,14 +5,17 @@ const TopCourseSection = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("popularCourse.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularCourseData = data.filter((item) =>
-          item.category.includes("popular")
-        );
-        setCourses(popularCourseData);
-      });
+    const seeMore = () => {
+      fetch("popularCourse.json")
+        .then((res) => res.json())
+        .then((data) => {
+          const popularCourseData = data.filter((item) =>
+            item.category.includes("popular")
+          );
+          setCourses(popularCourseData);
+        });
+    };
+    seeMore();
   }, []);
 
   return (

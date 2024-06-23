@@ -1,33 +1,18 @@
-import { useState } from "react";
-
+import "./allCourse.css";
+import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 const AllCoursePage = () => {
-  const [annual, setAnnual] = useState(false);
+  const [text] = useTypewriter({
+    words: ["Unlock your", "true potential today!", "and learn new skills"],
+    loop: 5,
+  });
   return (
     <>
-      {/* Pricing Toggle Buttons */}
-      <div className="md:max-w-sm mx-auto">
-        {/* Toggle Button Container */}
-        <div className="inline-flex w-full border rounded-full mt-6 overflow-hidden border-white/20 p-0.5 z-0">
-          {/* Monthly Button */}
-          <button
-            className={`font-medium rounded-full transition h-12 w-full py-2 block px-8 text-xs ${
-              !annual ? "bg-black/50 text-white" : "text-white"
-            }`}
-            onClick={() => setAnnual(false)}
-            type="button"
-          >
-            Monthly
-          </button>
-          {/* Annual Button */}
-          <button
-            className={`font-medium rounded-full transition h-12 w-full py-2 block px-8 text-xs ${
-              annual ? "bg-black/50 text-white" : "text-white"
-            }`}
-            onClick={() => setAnnual(true)}
-            type="button"
-          >
-            Annual
-          </button>
+      <div className="backgroundImg h-screen bg-fixed">
+        <div className="flex h-full items-center justify-center">
+          <h3 className="text-xl lg:text-5xl text-center w-4/6 font-semibold text-white">
+            {text}
+            <Cursor cursorColor="white" />
+          </h3>
         </div>
       </div>
     </>

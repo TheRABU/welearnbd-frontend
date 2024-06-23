@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       {/* Banner Section */}
-      <div className="">
+      <div className=" pt-6 md:pt-20">
         <Banner />
       </div>
       {/* Promotional boxes */}
