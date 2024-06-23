@@ -13,6 +13,9 @@ const PricingSection = () => {
       />
       {/* Ends Background image */}
       <div className="relative items-center h-full px-8 py-5 mx-auto md:px-12 max-w-7xl">
+        <h1 className="text-3xl text-center text-[#ffffff] font-bold">
+          Prices of premium services
+        </h1>
         {/* Pricing Toggle Buttons */}
         <div className="md:max-w-sm mx-auto">
           {/* Toggle Button Container */}

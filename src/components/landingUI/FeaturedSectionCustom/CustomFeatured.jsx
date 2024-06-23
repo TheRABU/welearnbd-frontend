@@ -1,4 +1,4 @@
-import studentImage from "../../landingUI/std.avif";
+import studentImage from "../../landingUI/std2.avif";
 import "./feature.css";
 const CustomFeatured = () => {
   return (

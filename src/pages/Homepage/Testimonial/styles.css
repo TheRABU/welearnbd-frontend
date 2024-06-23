@@ -31,6 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 auto;
+  margin: 0 auto;
 }
 
 .swiper-slide img {

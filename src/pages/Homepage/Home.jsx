@@ -88,9 +88,7 @@ const Home = () => {
       </div>
       {/* Testimonial/ Clients review */}
       <div>
-        <Container>
-          <Testimonial />
-        </Container>
+        <Testimonial />
       </div>
     </>
   );
