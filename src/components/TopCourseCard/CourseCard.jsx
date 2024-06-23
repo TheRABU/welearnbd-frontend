@@ -1,4 +1,5 @@
-const CourseCard = ({ cardItem }) => {
+const CourseCard = ({ eachCourse }) => {
+  const { courseImage, courseName, teacherName, price } = eachCourse;
   return (
     // <div className="max-w-xs rounded-md shadow-md bg-gray-900 text-gray-100">
     //   <img
@@ -26,15 +27,15 @@ const CourseCard = ({ cardItem }) => {
     <div className="bg-white rounded-xl shadow-xl p-2 transition-transform duration-300 transform hover:scale-105">
       <div className="relative overflow-hidden rounded-lg ">
         <img
-          className="object-cover w-full h-full "
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+          className="object-cover w-full h-36 "
+          src={courseImage}
           alt="Product"
         />
       </div>
 
-      <h3 className="text-xl font-bold text-gray-900 mt-4">Product Name</h3>
-      <p className="text-gray-500 text-sm mt-2">category</p>
-      <p className="text-gray-500 text-sm mt-2">Price$</p>
+      <h3 className="text-xl font-bold text-gray-900 mt-4">{courseName}</h3>
+      <p className="text-gray-500 text-sm mt-2">Teacher {teacherName}</p>
+      <p className="text-gray-500 text-sm mt-2">$ {price}</p>
     </div>
   );
 };

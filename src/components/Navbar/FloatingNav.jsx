@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import UserDropdown from "./UserDropdown";
+import Logo from "../../../public/logo.avif";
 const FloatingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useAuth();
@@ -16,8 +17,8 @@ const FloatingNav = () => {
               to="/"
             >
               <img
-                className="h-7 w-auto"
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                className="h-14 w-auto"
+                src="https://www.svgrepo.com/show/452102/slack.svg"
                 alt=""
               />
               <p className="sr-only">WeLearnBD</p>

@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "course1",
+    "courseName": "Introduction to Web Development",
+    "teacherName": "John Doe",
+    "category": ["web development", "popular"],
+    "price": 49.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?w=740&t=st=1719166863~exp=1719167463~hmac=5817b44fa0c8b01348b1673e08aeab1fe82d78e09441d1e0446fd7884d7e3aa7"
+  },
+  {
+    "_id": "course2",
+    "courseName": "Advanced JavaScript",
+    "teacherName": "Jane Smith",
+    "category": ["web development"],
+    "price": 69.99,
+    "level": "advanced",
+    "courseImage": "https://img.freepik.com/free-photo/programming-background-collage_23-2149901789.jpg?w=740&t=st=1719166962~exp=1719167562~hmac=cd54fceb06ee51f2a00e9aa891b3e38aa5e24803e8a5b36843ba0616a5e1536f"
+  },
+  {
+    "_id": "course3",
+    "courseName": "Marketing Essentials",
+    "teacherName": "Emily Davis",
+    "category": ["marketing", "popular"],
+    "price": 39.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/shocked-dark-skinned-man-spreads-palms-sideways-reacts-with-surprisement-looks-aside-wears-black-clothes-focused-aside-with-impressed-expression-poses-torn-paper-hole-yellow-background_273609-32828.jpg?t=st=1719167086~exp=1719170686~hmac=98c14891dd72e62f9b491afe8ddb1442eec8345a19d2b107c466592323944a70&w=740"
+  },
+  {
+    "_id": "course4",
+    "courseName": "React for Beginners",
+    "teacherName": "Michael Johnson",
+    "category": ["web development", "popular"],
+    "price": 59.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/atom-science-education-icon-vector-neon-digital-graphic_53876-114080.jpg?t=st=1719167052~exp=1719170652~hmac=113077af2031d8279a5e04a951dba167780f951d608b7cbad25eaf850633767f&w=740"
+  },
+  {
+    "_id": "course5",
+    "courseName": "Intermediate Python Programming",
+    "teacherName": "David Brown",
+    "category": ["web development"],
+    "price": 55.0,
+    "level": "intermediate",
+    "courseImage": "https://www.ntuclearninghub.com/documents/39367/4216797/Python-Symbol.png/369e410e-a90f-f887-c2dc-61f7ef761476"
+  },
+  {
+    "_id": "course6",
+    "courseName": "SEO and Content Marketing",
+    "teacherName": "Olivia Wilson",
+    "category": ["marketing"],
+    "price": 44.99,
+    "level": "intermediate",
+    "courseImage": "https://img.freepik.com/free-photo/social-media-marketing-concept-marketing-with-applications_23-2150063170.jpg?t=st=1719167215~exp=1719170815~hmac=aa5bef22941ef055c0494ca7e2c9361c57966559dbcd0fb9702a236743c9fa8e&w=360"
+  },
+  {
+    "_id": "course7",
+    "courseName": "Full-Stack Development",
+    "teacherName": "Chris Lee",
+    "category": ["web development"],
+    "price": 89.99,
+    "level": "advanced",
+    "courseImage": "https://img.freepik.com/free-vector/flat-design-cms-concept-illustration_23-2148796509.jpg?t=st=1719167259~exp=1719170859~hmac=658dd8d51671a98e98ed7cc6b354b66335079d44f45451b2eda8a067c93e5130&w=740"
+  },
+  {
+    "_id": "course8",
+    "courseName": "Social Media Marketing Strategies",
+    "teacherName": "Sophia Martinez",
+    "category": ["marketing", "popular"],
+    "price": 49.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/hand-holding-smartphone-social-media-concept_23-2150208245.jpg?t=st=1719166902~exp=1719170502~hmac=23e1738bab5cb1331f30e030997c1b4f0c5ca744f2b47cba3c63363e343c71bc&w=740"
+  }
+]

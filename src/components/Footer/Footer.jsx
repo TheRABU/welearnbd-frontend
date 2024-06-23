@@ -17,7 +17,10 @@ const Footer = () => {
                         className="w-16"
                       />
                     </span>
-                    <span className="text-white">AIOps</span>
+                    <span className="text-white">
+                      We learn <br />
+                      BD
+                    </span>
                   </div>
                 </a>
               </div>
