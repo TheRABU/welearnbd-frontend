@@ -4,7 +4,7 @@ const JoinTeacherSection = () => {
       <div className="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:max-w-5xl lg:mt-12 xl:max-w-6xl">
         <div className="w-full h-64 lg:w-1/2 lg:h-auto rounded-lg">
           <img
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover rounded-xl"
             src="https://picsum.photos/id/1018/2000"
             alt="Winding mountain road"
           />
