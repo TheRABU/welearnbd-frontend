@@ -1,0 +1,50 @@
+[
+  {
+    "clientName": "Alice Johnson",
+    "review": "The course content was very comprehensive and the instructor was excellent.",
+    "ratings": 5,
+    "clientImage": "https://example.com/images/alice.jpg"
+  },
+  {
+    "clientName": "Bob Smith",
+    "review": "Good course, but some topics could have been covered in more detail.",
+    "ratings": 4,
+    "clientImage": "https://example.com/images/bob.jpg"
+  },
+  {
+    "clientName": "Catherine Lee",
+    "review": "I found the course to be average and not very engaging.",
+    "ratings": 3,
+    "clientImage": "https://example.com/images/catherine.jpg"
+  },
+  {
+    "clientName": "David Wright",
+    "review": "Excellent material and great delivery by the instructor!",
+    "ratings": 5,
+    "clientImage": "https://example.com/images/david.jpg"
+  },
+  {
+    "clientName": "Eva Brown",
+    "review": "The course was okay, but the technical issues were distracting.",
+    "ratings": 3,
+    "clientImage": "https://example.com/images/eva.jpg"
+  },
+  {
+    "clientName": "Franklin Martinez",
+    "review": "Great course! I learned a lot and the examples were very helpful.",
+    "ratings": 4,
+    "clientImage": "https://example.com/images/franklin.jpg"
+  },
+  {
+    "clientName": "Grace Kim",
+    "review": "The course was fantastic! The pace was perfect and the content was relevant.",
+    "ratings": 5,
+    "clientImage": "https://example.com/images/grace.jpg"
+  },
+  {
+    "clientName": "Henry Turner",
+    "review": "Not bad, but the course could use some updates.",
+    "ratings": 3,
+    "clientImage": "https://example.com/images/henry.jpg"
+  }
+]
