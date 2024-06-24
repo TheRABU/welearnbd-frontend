@@ -4,12 +4,10 @@ import StatsComponent from "../../components/Stats/StatsComponent";
 import OurWork from "../../components/landingUI/OurWork";
 import Container from "../../container/Container";
 import CompanyGrid from "../../components/landingUI/CompanyIconsGrid/CompanyGrid";
-
 import TopCourseSection from "./TopCourseSection";
 import AnotherSection from "../../components/landingUI/JustAnotherSection/AnotherSection";
 import PricingSection from "./PricingSection";
 import AnotherFeature from "./AnotherFeature";
-
 import JoinTeacherSection from "./JoinTeacherSection";
 import FAQsection from "./FAQsection";
 import Testimonial from "./Testimonial/Testimonial";

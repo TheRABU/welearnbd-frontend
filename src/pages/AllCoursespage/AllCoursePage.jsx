@@ -22,7 +22,7 @@ const AllCoursePage = () => {
           </h3>
         </div>
       </div>
-      <div className="border-blue-500 border-2 p-4 md:p-10 m-3 md:m-10 rounded-xl bg-[#ffffff] h-full ">
+      <div className="border-blue-500 mx-auto border-2 p-4 md:p-10 m-3 md:m-10 rounded-xl bg-[#ffffff] h-full ">
         {/* TABS */}
         <div className="flex items-center my-6 -mx-4 space-x-2 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap  text-gray-100">
           <Tabs
@@ -40,8 +40,8 @@ const AllCoursePage = () => {
               <Tab>Video editing</Tab>
               <Tab>Youtube</Tab>
             </TabList>
-            <TabPanel>
-              <div className="max-w-xs p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+            <TabPanel className={"my-6"}>
+              <div className="max-w-xs p-6 rounded-md shadow-xl dark:bg-gray-50 dark:text-gray-900">
                 <img
                   src="https://source.unsplash.com/random/300x300/?1"
                   alt=""
