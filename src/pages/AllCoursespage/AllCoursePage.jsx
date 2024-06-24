@@ -42,25 +42,21 @@ const AllCoursePage = () => {
           </h3>
         </div>
       </div>
-      <div className="border-blue-500 lg:mx-20 border-2 p-4 mx-3 md:p-10 m-3 md:m-10 rounded-xl bg-[#ffffff] h-full ">
+      <div className="border-blue-500 border-2 p-4 mx-3 lg:mx-20 md:p-10 m-3 md:m-10 rounded-xl bg-[#ffffff] h-full ">
         {/* TABS */}
         <div className="flex items-center my-6 -mx-4 space-x-2 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap  text-gray-100">
           <Tabs
             selectedIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList
-              className={
-                "flex items-center flex-shrink-0 px-5 py-2 border-b-4 border-gray-700 text-gray-400"
-              }
-            >
+            <TabList className={"border-b-4 border-gray-700 text-gray-400"}>
               <Tab>Web development</Tab>
               <Tab>Marketing</Tab>
               <Tab>Learn App development</Tab>
               <Tab>Video editing</Tab>
               <Tab>Youtube</Tab>
             </TabList>
-            <TabPanel className={"my-6"}>
+            <TabPanel>
               <CourseTab items={webDev} />
             </TabPanel>
             <TabPanel>
