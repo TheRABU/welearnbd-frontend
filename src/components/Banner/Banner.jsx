@@ -18,8 +18,8 @@ const Banner = () => {
         </p>
         <div className="mt-4">
           <a
-            href="#contact"
-            className="px-5 py-3 text-lg tracking-wider text-white bg-blue-500 rounded-lg md:px-8 hover:bg-blue-600 group"
+            href="#topCourses"
+            className="px-5 py-3 text-lg tracking-wider text-white bg-blue-500 rounded-lg md:px-10 hover:bg-blue-600 group"
           >
             <span>Explore More</span>{" "}
           </a>

@@ -12,6 +12,7 @@ import JoinTeacherSection from "./JoinTeacherSection";
 import FAQsection from "./FAQsection";
 import Testimonial from "./Testimonial/Testimonial";
 import CustomFeatured from "../../components/landingUI/FeaturedSectionCustom/CustomFeatured";
+
 const Home = () => {
   return (
     <>
@@ -26,7 +27,7 @@ const Home = () => {
         </div>
       </Container>
       {/* Top Courses Section */}
-      <div>
+      <div id="topCourses">
         <TopCourseSection />
       </div>
       {/* Custom Photo and text featured section */}
