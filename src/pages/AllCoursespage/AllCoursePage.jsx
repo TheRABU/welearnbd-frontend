@@ -3,6 +3,7 @@ import "./allCourse.css";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import "./tabCSS.css";
 const AllCoursePage = () => {
   const [text] = useTypewriter({
     words: ["Unlock your", "true potential today!", "and learn new skills"],
@@ -21,9 +22,9 @@ const AllCoursePage = () => {
           </h3>
         </div>
       </div>
-      <div className="border-blue-500 border-2 p-4 md:p-10 m-3 md:m-10 rounded-xl bg-slate-600 h-full ">
+      <div className="border-blue-500 border-2 p-4 md:p-10 m-3 md:m-10 rounded-xl bg-[#ffffff] h-full ">
         {/* TABS */}
-        <div className="flex items-center my-6 -mx-4 space-x-2 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap bg-gray-800 text-gray-100">
+        <div className="flex items-center my-6 -mx-4 space-x-2 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap  text-gray-100">
           <Tabs
             selectedIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
