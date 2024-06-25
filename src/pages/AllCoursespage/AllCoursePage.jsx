@@ -42,7 +42,8 @@ const AllCoursePage = () => {
           </h3>
         </div>
       </div>
-      <div className="border-blue-500 border-2 p-4 mx-3 lg:mx-20 md:p-10 m-3 md:m-10 rounded-xl bg-[#ffffff] h-full ">
+      {/* ALL COURSES BASED ON CATEGORY */}
+      <div className="border-blue-500 border-2 p-4 mx-3 lg:mx-20 md:p-10 m-3 md:m-10 rounded-md bg-[#ffffff] h-full ">
         {/* TABS */}
         <div className="flex items-center my-6 -mx-4 space-x-2 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap  text-gray-100">
           <Tabs
