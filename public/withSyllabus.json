@@ -1,0 +1,573 @@
+[
+  {
+    "courseName": "Introduction to Web Development",
+    "teacherName": "Sifatul islam Rabbi",
+    "category": ["web development", "popular", "development"],
+    "price": 49.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?w=740&t=st=1719166863~exp=1719167463~hmac=5817b44fa0c8b01348b1673e08aeab1fe82d78e09441d1e0446fd7884d7e3aa7",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "An overview of what the course will cover and the learning objectives."
+      },
+
+      {
+        "topicName": "What is Web Development?",
+        "content": "Introduction to web development, including an overview of the various technologies and tools used."
+      },
+      {
+        "topicName": "Basic HTML and CSS",
+        "content": "Learning the fundamentals of HTML and CSS to create and style webpages."
+      },
+      {
+        "topicName": "Introduction to JavaScript",
+        "content": "Basics of JavaScript programming and how to use it to enhance web functionality."
+      },
+      {
+        "topicName": "Building Your First Webpage",
+        "content": "A step-by-step guide to creating your first webpage using HTML, CSS, and JavaScript."
+      }
+    ]
+  },
+  {
+    "courseName": "Advanced JavaScript",
+    "teacherName": "Jane Smith",
+    "category": ["web development", "development"],
+    "price": 69.99,
+    "level": "advanced",
+    "courseImage": "https://img.freepik.com/free-photo/programming-background-collage_23-2149901789.jpg?w=740&t=st=1719166962~exp=1719167562~hmac=cd54fceb06ee51f2a00e9aa891b3e38aa5e24803e8a5b36843ba0616a5e1536f",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of advanced JavaScript concepts and what will be covered in this course."
+      },
+      {
+        "topicName": "JavaScript ES6+",
+        "content": "Detailed study of modern JavaScript features introduced in ES6 and beyond."
+      },
+      {
+        "topicName": "Asynchronous JavaScript",
+        "content": "Understanding asynchronous programming, promises, and async/await."
+      },
+      {
+        "topicName": "JavaScript Frameworks",
+        "content": "Introduction to popular JavaScript frameworks such as React, Angular, and Vue."
+      },
+      {
+        "topicName": "Advanced JavaScript Patterns",
+        "content": "Exploring advanced JavaScript patterns and best practices for writing clean, efficient code."
+      }
+    ]
+  },
+  {
+    "courseName": "Marketing Essentials",
+    "teacherName": "Emily Davis",
+    "category": ["marketing", "popular"],
+    "price": 39.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/shocked-dark-skinned-man-spreads-palms-sideways-reacts-with-surprisement-looks-aside-wears-black-clothes-focused-aside-with-impressed-expression-poses-torn-paper-hole-yellow-background_273609-32828.jpg?t=st=1719167086~exp=1719170686~hmac=98c14891dd72e62f9b491afe8ddb1442eec8345a19d2b107c466592323944a70&w=740",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of the course objectives and what students will learn."
+      },
+      {
+        "topicName": "Fundamentals of Marketing",
+        "content": "Basic principles and concepts of marketing."
+      },
+      {
+        "topicName": "Market Research",
+        "content": "Understanding how to conduct market research and analyze data."
+      },
+      {
+        "topicName": "Marketing Strategies",
+        "content": "Developing effective marketing strategies and plans."
+      },
+      {
+        "topicName": "Digital Marketing",
+        "content": "Introduction to digital marketing and various online marketing tools."
+      }
+    ]
+  },
+  {
+    "courseName": "React for Beginners",
+    "teacherName": "Michael Johnson",
+    "category": ["web development", "popular", "development"],
+    "price": 59.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/atom-science-education-icon-vector-neon-digital-graphic_53876-114080.jpg?t=st=1719167052~exp=1719170652~hmac=113077af2031d8279a5e04a951dba167780f951d608b7cbad25eaf850633767f&w=740",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of React and its core concepts."
+      },
+      {
+        "topicName": "Setting Up React Environment",
+        "content": "Guidelines for setting up the development environment for React."
+      },
+      {
+        "topicName": "React Components",
+        "content": "Understanding React components and how to build them."
+      },
+      {
+        "topicName": "State and Props",
+        "content": "Learning about state management and passing data using props."
+      },
+      {
+        "topicName": "Handling Events in React",
+        "content": "How to handle user events in React applications."
+      }
+    ]
+  },
+  {
+    "courseName": "Intermediate Python Programming",
+    "teacherName": "Mahi Sarwar Anol",
+    "category": ["web development", "development"],
+    "price": 55.0,
+    "level": "intermediate",
+    "courseImage": "https://www.ntuclearninghub.com/documents/39367/4216797/Python-Symbol.png/369e410e-a90f-f887-c2dc-61f7ef761476",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of what will be covered in intermediate Python programming."
+      },
+      {
+        "topicName": "Intermediate Python Syntax",
+        "content": "Delving deeper into Python syntax and constructs."
+      },
+      {
+        "topicName": "Working with Data Structures",
+        "content": "Advanced usage of Python data structures such as lists, dictionaries, and sets."
+      },
+      {
+        "topicName": "File Handling in Python",
+        "content": "Reading from and writing to files using Python."
+      },
+      {
+        "topicName": "Introduction to OOP in Python",
+        "content": "Basics of Object-Oriented Programming in Python."
+      }
+    ]
+  },
+  {
+    "courseName": "SEO and Content Marketing",
+    "teacherName": "Olivia Wilson",
+    "category": ["marketing"],
+    "price": 44.99,
+    "level": "intermediate",
+    "courseImage": "https://img.freepik.com/free-photo/social-media-marketing-concept-marketing-with-applications_23-2150063170.jpg?t=st=1719167215~exp=1719170815~hmac=aa5bef22941ef055c0494ca7e2c9361c57966559dbcd0fb9702a236743c9fa8e&w=360",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of the course objectives and what students will learn."
+      },
+      {
+        "topicName": "Basics of SEO",
+        "content": "Understanding Search Engine Optimization and its importance."
+      },
+      {
+        "topicName": "Keyword Research",
+        "content": "How to conduct keyword research to optimize content."
+      },
+      {
+        "topicName": "On-Page and Off-Page SEO",
+        "content": "Strategies for improving on-page and off-page SEO."
+      },
+      {
+        "topicName": "Content Marketing Strategies",
+        "content": "Developing effective content marketing strategies."
+      }
+    ]
+  },
+  {
+    "courseName": "Full-Stack Development",
+    "teacherName": "Sifatul islam Rabbi",
+    "category": ["web development", "development"],
+    "price": 89.99,
+    "level": "advanced",
+    "courseImage": "https://img.freepik.com/free-vector/flat-design-cms-concept-illustration_23-2148796509.jpg?t=st=1719167259~exp=1719170859~hmac=658dd8d51671a98e98ed7cc6b354b66335079d44f45451b2eda8a067c93e5130&w=740",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of full-stack development and what will be covered."
+      },
+      {
+        "topicName": "Frontend Development",
+        "content": "Introduction to frontend technologies like HTML, CSS, and JavaScript."
+      },
+      {
+        "topicName": "Backend Development",
+        "content": "Overview of backend development with Node.js, Express, and databases."
+      },
+      {
+        "topicName": "RESTful APIs",
+        "content": "Creating and consuming RESTful APIs."
+      },
+      {
+        "topicName": "Deploying Full-Stack Applications",
+        "content": "Deployment strategies for full-stack applications."
+      }
+    ]
+  },
+  {
+    "courseName": "Social Media Marketing Strategies",
+    "teacherName": "Sophia Martinez",
+    "category": ["marketing", "popular"],
+    "price": 49.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/hand-holding-smartphone-social-media-concept_23-2150208245.jpg?t=st=1719166902~exp=1719170502~hmac=23e1738bab5cb1331f30e030997c1b4f0c5ca744f2b47cba3c63363e343c71bc&w=740",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of the course objectives and what students will learn."
+      },
+      {
+        "topicName": "Fundamentals of Social Media Marketing",
+        "content": "Basics of marketing on social media platforms."
+      },
+      {
+        "topicName": "Content Creation for Social Media",
+        "content": "How to create engaging content for different social media platforms."
+      },
+      {
+        "topicName": "Social Media Analytics",
+        "content": "Understanding and analyzing social media metrics."
+      },
+      {
+        "topicName": "Building a Social Media Strategy",
+        "content": "Developing and implementing effective social media strategies."
+      }
+    ]
+  },
+  {
+    "courseName": "App Development for Beginners",
+    "teacherName": "Alex Kim",
+    "category": ["app development", "popular"],
+    "price": 59.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/programming-concept-illustration_114360-1205.jpg?w=740&t=st=1719170865~exp=1719171465~hmac=d01b67d393133bd1b8ad26b85ffaf7fa8ef536256bfe2b14e0cdd9a37f7d4b35",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of app development and what will be covered."
+      },
+      {
+        "topicName": "Setting Up Development Environment",
+        "content": "Guidelines for setting up the app development environment."
+      },
+      {
+        "topicName": "Basic App Components",
+        "content": "Understanding the basic components of an app."
+      },
+      {
+        "topicName": "Building Your First App",
+        "content": "Step-by-step guide to building your first app."
+      },
+      {
+        "topicName": "Testing and Debugging Apps",
+        "content": "Introduction to testing and debugging your app."
+      }
+    ]
+  },
+  {
+    "courseName": "Learn YouTube Content Creation",
+    "teacherName": "Megan Carter",
+    "category": ["content creation", "popular", "youtube"],
+    "price": 49.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/young-smiling-girl-recording-video-with-camera-blog_171337-17277.jpg?w=740&t=st=1719170902~exp=1719171502~hmac=4f232f3080e3b1a3fa17f9e2e52bb5f18973c54ad4dc0f4dbd91cbe1a4e67b95",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of YouTube content creation and what will be covered."
+      },
+      {
+        "topicName": "Setting Up Your YouTube Channel",
+        "content": "Guidelines for creating and setting up a YouTube channel."
+      },
+      {
+        "topicName": "Creating Engaging Content",
+        "content": "How to create engaging and high-quality content for YouTube."
+      },
+      {
+        "topicName": "Editing Your Videos",
+        "content": "Basic video editing techniques for YouTube videos."
+      },
+      {
+        "topicName": "Promoting Your YouTube Channel",
+        "content": "Strategies for promoting and growing your YouTube channel."
+      }
+    ]
+  },
+  {
+    "courseName": "Video Editing Essentials",
+    "teacherName": "Sam Wilson",
+    "category": ["video editing", "editing"],
+    "price": 39.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/girl-editing-photo-laptop_23-2147734818.jpg?w=740&t=st=1719170943~exp=1719171543~hmac=28b12f7b3659ba2cfc0efb720c0a8c304b94b6fd2a776438280d2101d2f9fa09",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of video editing and what will be covered."
+      },
+      {
+        "topicName": "Basics of Video Editing",
+        "content": "Understanding the basics of video editing."
+      },
+      {
+        "topicName": "Using Video Editing Software",
+        "content": "Introduction to popular video editing software."
+      },
+      {
+        "topicName": "Editing Techniques",
+        "content": "Basic editing techniques and best practices."
+      },
+      {
+        "topicName": "Exporting and Sharing Videos",
+        "content": "How to export and share your edited videos."
+      }
+    ]
+  },
+  {
+    "courseName": "Advanced App Development",
+    "teacherName": "Alex Kim",
+    "category": ["app development"],
+    "price": 89.99,
+    "level": "advanced",
+    "courseImage": "https://img.freepik.com/free-vector/application-development-illustration_52683-47931.jpg?w=740&t=st=1719170973~exp=1719171573~hmac=26d9ea25f0df73861566f187bcd2a4d8d05f2e29a59aeb36c8410e870f6455b4",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of advanced app development and what will be covered."
+      },
+      {
+        "topicName": "Advanced App Components",
+        "content": "Understanding advanced app components and architecture."
+      },
+      {
+        "topicName": "State Management in Apps",
+        "content": "State management techniques for complex apps."
+      },
+      {
+        "topicName": "Advanced Testing and Debugging",
+        "content": "Advanced techniques for testing and debugging apps."
+      },
+      {
+        "topicName": "Deploying Your App",
+        "content": "Strategies for deploying and maintaining your app."
+      }
+    ]
+  },
+  {
+    "courseName": "YouTube Video Making",
+    "teacherName": "Laura Green",
+    "category": ["editing", "content creation", "youtube"],
+    "price": 69.99,
+    "level": "intermediate",
+    "courseImage": "https://img.freepik.com/free-photo/man-recording-video-with-camera_23-2148888784.jpg?w=740&t=st=1719171485~exp=1719172085~hmac=8cfaf2f1ec53b86dc30174c7a635e6cce788f20460cb2e06a5b106c678177b98",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of YouTube video making and what will be covered."
+      },
+      {
+        "topicName": "Advanced Video Editing",
+        "content": "Techniques for advanced video editing."
+      },
+      {
+        "topicName": "Creating Professional Videos",
+        "content": "How to create professional-looking videos for YouTube."
+      },
+      {
+        "topicName": "Optimizing Videos for YouTube",
+        "content": "Best practices for optimizing videos for YouTube."
+      },
+      {
+        "topicName": "Monetizing Your YouTube Channel",
+        "content": "Strategies for monetizing and earning from your YouTube channel."
+      }
+    ]
+  },
+  {
+    "courseName": "Motion Graphics",
+    "teacherName": "Kevin White",
+    "category": ["editing", "popular", "video editing"],
+    "price": 79.99,
+    "level": "advanced",
+    "courseImage": "https://img.freepik.com/free-vector/motion-graphics-concept-illustration_114360-1105.jpg?w=740&t=st=1719171526~exp=1719172126~hmac=2345be8d6e8dbe9b58fa41f0574f9c7c8d550bb37c0dbe245c3c3e6eabe8858b",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of motion graphics and what will be covered."
+      },
+      {
+        "topicName": "Advanced Animation Techniques",
+        "content": "Techniques for creating advanced animations."
+      },
+      {
+        "topicName": "Using Motion Graphics Software",
+        "content": "Introduction to popular motion graphics software."
+      },
+      {
+        "topicName": "Creating Motion Graphics Projects",
+        "content": "How to create and manage motion graphics projects."
+      },
+      {
+        "topicName": "Exporting and Sharing Motion Graphics",
+        "content": "Best practices for exporting and sharing your motion graphics."
+      }
+    ]
+  },
+  {
+    "courseName": "Illustrator Design",
+    "teacherName": "Rachel Brown",
+    "category": ["editing", "graphics"],
+    "price": 64.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/illustration-concept-with-colorful-icons-flat-style_23-2147977563.jpg?w=740&t=st=1719171559~exp=1719172159~hmac=feecb54da2ffeb0d29d7332ccead7e8ed2b8c0e5e92bc22f918795b0e2bdbef6",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of Illustrator design and what will be covered."
+      },
+      {
+        "topicName": "Basics of Illustrator",
+        "content": "Understanding the basics of Adobe Illustrator."
+      },
+      {
+        "topicName": "Creating Vector Graphics",
+        "content": "How to create and edit vector graphics."
+      },
+      {
+        "topicName": "Using Illustrator Tools",
+        "content": "Introduction to various tools in Adobe Illustrator."
+      },
+      {
+        "topicName": "Exporting and Sharing Designs",
+        "content": "Best practices for exporting and sharing your Illustrator designs."
+      }
+    ]
+  },
+  {
+    "courseName": "Canva Design",
+    "teacherName": "Emily Johnson",
+    "category": ["editing", "graphics"],
+    "price": 34.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-vector/design-graphic-software-concept_23-2147822067.jpg?w=740&t=st=1719171598~exp=1719172198~hmac=3f058d45210ec4e0fa0e2164c3d4103e346a20b9059d3cf5ad4e79e1959be6e3",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of Canva design and what will be covered."
+      },
+      {
+        "topicName": "Getting Started with Canva",
+        "content": "Basic introduction to using Canva."
+      },
+      {
+        "topicName": "Designing with Canva Templates",
+        "content": "How to use and customize Canva templates."
+      },
+      {
+        "topicName": "Creating Custom Designs",
+        "content": "Steps to create your own custom designs in Canva."
+      },
+      {
+        "topicName": "Exporting and Sharing Designs",
+        "content": "Best practices for exporting and sharing your Canva designs."
+      }
+    ]
+  },
+  {
+    "courseName": "Social Media Content Writing",
+    "teacherName": "Lisa Parker",
+    "category": ["content creation"],
+    "price": 44.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/content-writer-desktop-with-content-block_1252-814.jpg?w=740&t=st=1719171638~exp=1719172238~hmac=6164b957c501539a0fffa9bbd62cb302ab9ac55e84e7a157199d9175d69d0aa0",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of social media content writing and what will be covered."
+      },
+      {
+        "topicName": "Basics of Content Writing",
+        "content": "Understanding the basics of writing content for social media."
+      },
+      {
+        "topicName": "Creating Engaging Content",
+        "content": "Techniques for creating engaging and relevant content."
+      },
+      {
+        "topicName": "Writing for Different Platforms",
+        "content": "How to tailor your writing for various social media platforms."
+      },
+      {
+        "topicName": "Analyzing Content Performance",
+        "content": "Understanding and analyzing the performance of your content."
+      }
+    ]
+  },
+  {
+    "courseName": "Anti AI Writing",
+    "teacherName": "James Lee",
+    "category": ["content creation"],
+    "price": 39.99,
+    "level": "intermediate",
+    "courseImage": "https://img.freepik.com/free-vector/ai-artificial-intelligence-technology-isometric-concept_1284-57959.jpg?w=740&t=st=1719171685~exp=1719172285~hmac=27c399e7ddcf40a86d91e0d3ef7afaf4c39060fa3960672d39b13c95af30b3a5",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of anti AI writing and what will be covered."
+      },
+      {
+        "topicName": "Understanding AI in Writing",
+        "content": "Basics of AI and its role in content creation."
+      },
+      {
+        "topicName": "Writing Human-Like Content",
+        "content": "Techniques for writing content that stands out from AI-generated content."
+      },
+      {
+        "topicName": "Avoiding AI Detection",
+        "content": "Strategies for ensuring your content is not flagged as AI-generated."
+      },
+      {
+        "topicName": "Advanced Writing Techniques",
+        "content": "Advanced techniques for creating high-quality, human-like content."
+      }
+    ]
+  },
+  {
+    "courseName": "Poem Writing",
+    "teacherName": "Anna Brown",
+    "category": ["content creation"],
+    "price": 29.99,
+    "level": "beginner",
+    "courseImage": "https://img.freepik.com/free-photo/beautiful-poetry-concept-closeup-vintage-poetry-typewriter-book-lilac-blossoms_127032-1096.jpg?w=740&t=st=1719171723~exp=1719172323~hmac=f3a939c58fc91d4a76b81e3a8b9b47bbdf22c938d1c85bb481be4423d8003bc8",
+    "courseSyllabus": [
+      {
+        "topicName": "Introduction to Course",
+        "content": "Overview of poem writing and what will be covered."
+      },
+      {
+        "topicName": "Basics of Poetry",
+        "content": "Understanding the basics of poetry and poetic devices."
+      },
+      {
+        "topicName": "Writing Your First Poem",
+        "content": "Guidelines and steps for writing your first poem."
+      },
+      {
+        "topicName": "Exploring Different Forms of Poetry",
+        "content": "Introduction to various forms and styles of poetry."
+      },
+      {
+        "topicName": "Publishing Your Poetry",
+        "content": "Tips and strategies for publishing and sharing your poetry."
+      }
+    ]
+  }
+]
