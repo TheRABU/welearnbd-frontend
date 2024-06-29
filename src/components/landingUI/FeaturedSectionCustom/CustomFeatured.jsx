@@ -4,7 +4,7 @@ const CustomFeatured = () => {
   return (
     <>
       <div className="featured-div h-screen mt-0 py-30 px-6 lg:px-36 xl:px-56 bg-fixed block lg:flex items-center justify-between">
-        <div className="w-full py-4 lg:py-0 md:w-2/4 lg:w-4/6 xl:w-3/6">
+        <div className="w-full py-4 lg:py-0 md:w-2/4 lg:w-8/12 xl:w-10/12">
           <img
             className="w-full h-full object-cover rounded-xl"
             src={studentImage}
