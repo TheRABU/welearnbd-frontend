@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import CourseCard from "../../components/TopCourseCard/CourseCard";
+import axios from "axios";
 
 const TopCourseSection = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    const seeMore = () => {
-      fetch("popularCourse.json")
-        .then((res) => res.json())
-        .then((data) => {
-          const popularCourseData = data.filter((item) =>
-            item.category.includes("popular")
-          );
-          setCourses(popularCourseData);
-        });
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/courses`
+        );
+        const filteredPopularCourses = response.data.filter((item) =>
+          item.category.includes("popular")
+        );
+        setCourses(filteredPopularCourses);
+      } catch (error) {
+        console.log(error.message);
+        throw new error();
+      }
     };
-    seeMore();
+    fetchCourses();
   }, []);
 
   return (
@@ -31,7 +36,7 @@ const TopCourseSection = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-            {courses.map((eachCourse) => (
+            {courses.slice(0, 4).map((eachCourse) => (
               <CourseCard eachCourse={eachCourse} key={eachCourse._id} />
             ))}
           </div>

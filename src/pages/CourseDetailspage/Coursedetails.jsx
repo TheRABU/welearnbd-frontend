@@ -27,7 +27,7 @@ const Coursedetails = () => {
             <p className="text-xl">$ {details.price}</p>
           </div>
           {/* IMAGE */}
-          <div className="image px-3 md:px-6 w-full h-full lg:w-8/12 lg:max-w-fit overflow-hidden">
+          <div className="image px-3 md:px-6 w-full h-full lg:min-h-max lg:w-8/12 lg:max-w-fit overflow-hidden">
             <img
               className="object-cover rounded-xl w-full h-full bg-slate-700"
               src={details.courseImage}
