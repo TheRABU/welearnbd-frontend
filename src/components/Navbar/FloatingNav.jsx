@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import UserDropdown from "./UserDropdown";
-import Logo from "../../../public/logo.avif";
 const FloatingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useAuth();

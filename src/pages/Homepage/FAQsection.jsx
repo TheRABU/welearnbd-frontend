@@ -6,39 +6,32 @@ const FAQsection = () => {
           <h2 className="text-2xl font-semibold sm:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 mb-8 text-gray-400">
-            Sagittis tempor donec id vestibulum viverra. Neque condimentum
-            primis orci at lacus amet bibendum.
-          </p>
+
           <div className="space-y-4">
             <details className="w-full border rounded-lg">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-                Ex orci laoreet egestas sapien magna egestas scelerisque?
+                Do we provide support and guidelines?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">
-                Lectus iaculis orci metus vitae ligula dictum per. Nisl per
-                nullam taciti at adipiscing est.{" "}
+                Yes we have a dedicated team to support any confusion.
               </p>
             </details>
             <details className="w-full border rounded-lg">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-                Lorem at arcu rutrum viverra metus sapien venenatis lobortis
-                odio?
+                Do we take VAT on our purchase?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">
-                Tincidunt ut hac condimentum rhoncus phasellus nostra. Magna
-                porttitor egestas tincidunt neque vehicula potenti.{" "}
+                Governmental rates are applied. (if your country charges tax
+                then that amount will be taken)
               </p>
             </details>
             <details className="w-full border rounded-lg">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-                Eleifend feugiat sollicitudin laoreet adipiscing bibendum
-                suscipit erat?
+                Can I get refund money after I enroll any course?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">
-                Justo libero tellus integer tincidunt justo semper consequat
-                venenatis aliquet imperdiet. Ultricies urna proin fusce nulla
-                pretium sodales vel magna et massa euismod vulputate sed.{" "}
+                From 2022 we are no longer keeping the refund money option
+                available.
               </p>
             </details>
           </div>

@@ -22,13 +22,13 @@ const Testimonial = () => {
 
   return (
     <>
-      <section className="mt-8 mx-auto py-10 bg-[#ffffff] text-gray-800">
+      {/* <section className="mt-8 mx-auto py-10 bg-[#ffffff] text-gray-800">
         <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
           <h1 className="p-4 text-4xl font-semibold leading-none text-center">
             What our customers are saying about us
           </h1>
         </div>
-        <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
+        <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:ml-40 lg:justify-evenly lg:px-40">
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
@@ -72,7 +72,63 @@ const Testimonial = () => {
             ))}
           </Swiper>
         </div>
-      </section>
+      </section> */}
+      {/* ANOTHER SECTION */}
+
+      {/* ANOTHER 2 */}
+      <div className="container mx-auto lg:px-36">
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          {reviews.map((review, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="w-full md:w-8/12 lg:w-[850px] mx-auto">
+                <div className="relative">
+                  <div className="flex justify-center items-center h-80 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg overflow-hidden">
+                    <div className="px-8">
+                      <p className="text-lg font-medium text-white mb-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor"
+                          className="w-8 h-8 text-white"
+                        >
+                          <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
+                          <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
+                        </svg>
+                        {review.review}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor"
+                          className="absolute right-0 w-8 h-8 text-white"
+                        >
+                          <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
+                          <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
+                        </svg>
+                      </p>
+                      <Rating
+                        style={{
+                          maxWidth: 180,
+                          textAlign: "center",
+                          padding: 20,
+                        }}
+                        value={review.ratings}
+                        readOnly
+                      />
+                      <div className="mt-4">
+                        <div className="text-center">
+                          <p className="text-white font-medium">
+                            - {review.clientName}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 };
