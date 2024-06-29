@@ -1,5 +1,16 @@
+import useFetchSingleCourse from "../../hooks/useFetchSingleCourse";
+
 const Coursedetails = () => {
-  return <div>Coursedetails</div>;
+  const [details] = useFetchSingleCourse();
+
+  return (
+    <>
+      <div>
+        <h2>Details of course </h2>
+        {details.courseName}
+      </div>
+    </>
+  );
 };
 
 export default Coursedetails;
