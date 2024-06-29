@@ -2,7 +2,7 @@
   {
     "courseName": "Introduction to Web Development",
     "teacherName": "John Doe",
-    "category": ["web development", "popular"],
+    "category": ["web development", "popular", "development"],
     "price": 49.99,
     "level": "beginner",
     "courseImage": "https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?w=740&t=st=1719166863~exp=1719167463~hmac=5817b44fa0c8b01348b1673e08aeab1fe82d78e09441d1e0446fd7884d7e3aa7"
@@ -10,7 +10,7 @@
   {
     "courseName": "Advanced JavaScript",
     "teacherName": "Jane Smith",
-    "category": ["web development"],
+    "category": ["web development", "development"],
     "price": 69.99,
     "level": "advanced",
     "courseImage": "https://img.freepik.com/free-photo/programming-background-collage_23-2149901789.jpg?w=740&t=st=1719166962~exp=1719167562~hmac=cd54fceb06ee51f2a00e9aa891b3e38aa5e24803e8a5b36843ba0616a5e1536f"
@@ -26,7 +26,7 @@
   {
     "courseName": "React for Beginners",
     "teacherName": "Michael Johnson",
-    "category": ["web development", "popular"],
+    "category": ["web development", "popular", "development"],
     "price": 59.99,
     "level": "beginner",
     "courseImage": "https://img.freepik.com/free-vector/atom-science-education-icon-vector-neon-digital-graphic_53876-114080.jpg?t=st=1719167052~exp=1719170652~hmac=113077af2031d8279a5e04a951dba167780f951d608b7cbad25eaf850633767f&w=740"
@@ -34,7 +34,7 @@
   {
     "courseName": "Intermediate Python Programming",
     "teacherName": "David Brown",
-    "category": ["web development"],
+    "category": ["web development", "development"],
     "price": 55.0,
     "level": "intermediate",
     "courseImage": "https://www.ntuclearninghub.com/documents/39367/4216797/Python-Symbol.png/369e410e-a90f-f887-c2dc-61f7ef761476"
@@ -50,7 +50,7 @@
   {
     "courseName": "Full-Stack Development",
     "teacherName": "Chris Lee",
-    "category": ["web development"],
+    "category": ["web development", "development"],
     "price": 89.99,
     "level": "advanced",
     "courseImage": "https://img.freepik.com/free-vector/flat-design-cms-concept-illustration_23-2148796509.jpg?t=st=1719167259~exp=1719170859~hmac=658dd8d51671a98e98ed7cc6b354b66335079d44f45451b2eda8a067c93e5130&w=740"
@@ -74,7 +74,7 @@
   {
     "courseName": "Learn YouTube Content Creation",
     "teacherName": "Megan Carter",
-    "category": ["content creation", "popular"],
+    "category": ["content creation", "popular", "youtube"],
     "price": 49.99,
     "level": "beginner",
     "courseImage": "https://img.freepik.com/free-photo/young-smiling-girl-recording-video-with-camera-blog_171337-17277.jpg?w=740&t=st=1719170902~exp=1719171502~hmac=4f232f3080e3b1a3fa17f9e2e52bb5f18973c54ad4dc0f4dbd91cbe1a4e67b95"
@@ -82,7 +82,7 @@
   {
     "courseName": "Video Editing Essentials",
     "teacherName": "Sam Wilson",
-    "category": ["video editing"],
+    "category": ["video editing", "editing"],
     "price": 39.99,
     "level": "beginner",
     "courseImage": "https://img.freepik.com/free-photo/girl-editing-photo-laptop_23-2147734818.jpg?w=740&t=st=1719170943~exp=1719171543~hmac=28b12f7b3659ba2cfc0efb720c0a8c304b94b6fd2a776438280d2101d2f9fa09"
@@ -98,7 +98,7 @@
   {
     "courseName": "YouTube Video Making",
     "teacherName": "Laura Green",
-    "category": ["editing"],
+    "category": ["editing", "content creation", "youtube"],
     "price": 69.99,
     "level": "intermediate",
     "courseImage": "https://img.freepik.com/free-photo/man-recording-video-with-camera_23-2148888784.jpg?w=740&t=st=1719171485~exp=1719172085~hmac=8cfaf2f1ec53b86dc30174c7a635e6cce788f20460cb2e06a5b106c678177b98"
@@ -106,7 +106,7 @@
   {
     "courseName": "Motion Graphics",
     "teacherName": "Kevin White",
-    "category": ["editing", "popular"],
+    "category": ["editing", "popular", "video editing"],
     "price": 79.99,
     "level": "advanced",
     "courseImage": "https://img.freepik.com/free-vector/motion-graphics-concept-illustration_114360-1105.jpg?w=740&t=st=1719171526~exp=1719172126~hmac=2345be8d6e8dbe9b58fa41f0574f9c7c8d550bb37c0dbe245c3c3e6eabe8858b"
@@ -114,7 +114,7 @@
   {
     "courseName": "Illustrator Design",
     "teacherName": "Rachel Brown",
-    "category": ["editing"],
+    "category": ["editing", "graphics"],
     "price": 64.99,
     "level": "beginner",
     "courseImage": "https://img.freepik.com/free-vector/illustration-concept-with-colorful-icons-flat-style_23-2147977563.jpg?w=740&t=st=1719171559~exp=1719172159~hmac=feecb54da2ffeb0d29d7332ccead7e8ed2b8c0e5e92bc22f918795b0e2bdbef6"
@@ -122,7 +122,7 @@
   {
     "courseName": "Canva Design",
     "teacherName": "Emily Johnson",
-    "category": ["editing"],
+    "category": ["editing", "graphics"],
     "price": 34.99,
     "level": "beginner",
     "courseImage": "https://img.freepik.com/free-vector/design-graphic-software-concept_23-2147822067.jpg?w=740&t=st=1719171598~exp=1719172198~hmac=3f058d45210ec4e0fa0e2164c3d4103e346a20b9059d3cf5ad4e79e1959be6e3"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./allCourse.css";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -7,6 +7,7 @@ import "./tabCSS.css";
 import useFetchCourse from "../../hooks/useFetchCourse";
 import CourseTab from "./CourseTabCompo";
 const AllCoursePage = () => {
+  // typewriter effect texts
   const [text] = useTypewriter({
     words: ["Unlock your", "true potential today!", "and learn new skills"],
     loop: 5,
@@ -14,13 +15,6 @@ const AllCoursePage = () => {
 
   const [tabIndex, setTabIndex] = useState(0);
   // a array of categories from which compare the categories selected
-  const categories = [
-    "web development",
-    "digital marketing",
-    "app development",
-    "Learn Javascript",
-    "React",
-  ];
 
   // fetch the courses based on the category
   const [category] = useFetchCourse();
@@ -28,10 +22,27 @@ const AllCoursePage = () => {
   const webDev = category.filter((item) =>
     item.category.includes("web development")
   );
+  const recommendDev = category.filter((item) =>
+    item.category.includes("development")
+  );
   const marketing = category.filter((item) =>
     item.category.includes("marketing")
   );
-
+  const appDev = category.filter((item) =>
+    item.category.includes("app development")
+  );
+  const videoEditing = category.filter((item) =>
+    item.category.includes("video editing")
+  );
+  const learnYoutube = category.filter((item) =>
+    item.category.includes("youtube")
+  );
+  const contentCreation = category.filter((item) =>
+    item.category.includes("content creation")
+  );
+  const graphicsDesign = category.filter((item) =>
+    item.category.includes("graphics")
+  );
   return (
     <>
       <div className="backgroundImg h-screen bg-fixed">
@@ -56,12 +67,29 @@ const AllCoursePage = () => {
               <Tab>Learn App development</Tab>
               <Tab>Video editing</Tab>
               <Tab>Youtube</Tab>
+              <Tab>Content Creation</Tab>
+              <Tab>Graphics Design</Tab>
             </TabList>
             <TabPanel>
-              <CourseTab items={webDev} />
+              <CourseTab items={webDev} recommendation={recommendDev} />
             </TabPanel>
             <TabPanel>
               <CourseTab items={marketing} />
+            </TabPanel>
+            <TabPanel>
+              <CourseTab items={appDev} />
+            </TabPanel>
+            <TabPanel>
+              <CourseTab items={videoEditing} />
+            </TabPanel>
+            <TabPanel>
+              <CourseTab items={learnYoutube} />
+            </TabPanel>
+            <TabPanel>
+              <CourseTab items={contentCreation} />
+            </TabPanel>
+            <TabPanel>
+              <CourseTab items={graphicsDesign} />
             </TabPanel>
           </Tabs>
         </div>

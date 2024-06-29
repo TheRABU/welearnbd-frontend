@@ -47,12 +47,12 @@ const Home = () => {
         <PricingSection />
       </div>
       {/* Brands Collaboration/Partners section */}
-      <Container>
-        <div className="mt-10">
-          <SectionTitle heading={"Our Partners are"} />
-          <CompanyGrid />
-        </div>
-      </Container>
+
+      <div className="mt-10 px-10 lg:mx-auto 2xl:mx-52 2xl:my-24 2xl:px-64">
+        <SectionTitle heading={"Our Partners are"} />
+        <CompanyGrid />
+      </div>
+
       {/* Join as a Teacher section */}
       <div>
         <div className="py-10">

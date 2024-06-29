@@ -11,9 +11,7 @@ const AllCourseCard = ({ courseItem }) => {
       </div>
 
       <h3 className="text-xl font-bold text-gray-900 mt-4">{courseName}</h3>
-      <p className="text-gray-500 text-sm mt-2">
-        Teacher Teacher name {teacherName}
-      </p>
+      <p className="text-gray-500 text-sm mt-2">By {teacherName}</p>
       <p className="text-gray-500 text-sm mt-2">$ {price}</p>
     </div>
   );
