@@ -1,6 +1,35 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
+  const [showPass, setShowPass] = useState(true);
+  const { CreateNewUser, updateUserProfile } = useAuth();
+
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const result = await CreateNewUser(data.email, data.password);
+      const loggedUser = result.user;
+
+      // update the name if name is given
+      await updateUserProfile(loggedUser, {
+        displayName: data.name,
+      });
+      console.log(loggedUser);
+    } catch (error) {
+      console.log("Could not authenticate firebase now");
+      throw new Error();
+    }
+  };
+
   return (
     <>
       <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center pt-16 lg:pt-20">
@@ -62,50 +91,112 @@ const SignUp = () => {
                     Or sign up with e-mail
                   </div>
                 </div>
+                {/* FORM STARTS HERE... */}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="mx-auto max-w-xs">
+                    <div className="mb-5">
+                      <input
+                        {...register("name", {
+                          required: "Name is required",
+                        })}
+                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                        type="type"
+                        placeholder="Name"
+                      />
+                      {errors.name && (
+                        <p className="text-red-600">{errors.name.message}</p>
+                      )}
+                    </div>
+                    <div>
+                      <input
+                        {...register("email", {
+                          required: "Email is required",
+                        })}
+                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                        type="email"
+                        placeholder="Email"
+                      />
 
-                <div className="mx-auto max-w-xs">
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="email"
-                    placeholder="Email"
-                  />
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                    type="password"
-                    placeholder="Password"
-                  />
-                  <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                    <svg
-                      className="w-6 h-6 -ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      {errors.email && (
+                        <p className="text-red-600">{errors.email.message}</p>
+                      )}
+                    </div>
+
+                    <div className="flex justify-start items-center">
+                      <input
+                        {...register("password", {
+                          required: "Password is required",
+                          minLength: {
+                            value: 8,
+                            message:
+                              "Password should be at least 8 characters long",
+                          },
+                          pattern: {
+                            message:
+                              "Password must contain at least one letter and one special character",
+                            value: /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*])/,
+                          },
+                          maxLength: {
+                            value: 20,
+                            message:
+                              "Password should be a maximum length of 20 characters",
+                          },
+                        })}
+                        className="w-full relative px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                        type={showPass ? "text" : "password"}
+                        placeholder="Password"
+                      />
+                      <span
+                        className="absolute mt-4 ml-2 cursor-pointer"
+                        onClick={() => setShowPass(!showPass)}
+                      >
+                        {showPass ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+
+                      {/* <FaEye
+                        className="absolute mt-4 ml-3"
+                        onClick={() => setShowPass(!showPass)}
+                      /> */}
+                    </div>
+                    {errors.password && (
+                      <p className="text-red-600">{errors.password.message}</p>
+                    )}
+                    <button
+                      type="submit"
+                      className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                     >
-                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                      <circle cx="8.5" cy="7" r="4" />
-                      <path d="M20 8v6M23 11h-6" />
-                    </svg>
-                    <span className="ml-3">Sign Up</span>
-                  </button>
-                  <p className="mt-6 text-xs text-gray-600 text-center">
-                    I agree to the terms and conditions
-                    <a
-                      href="#"
-                      className="border-b border-gray-500 border-dotted"
-                    >
-                      Terms of Service
-                    </a>
-                    and its
-                    <a
-                      href="#"
-                      className="border-b border-gray-500 border-dotted"
-                    >
-                      Privacy Policy
-                    </a>
-                  </p>
-                </div>
+                      <svg
+                        className="w-6 h-6 -ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="8.5" cy="7" r="4" />
+                        <path d="M20 8v6M23 11h-6" />
+                      </svg>
+                      <span className="ml-3">Sign Up</span>
+                    </button>
+                    <p className="mt-6 text-xs text-gray-600 text-center">
+                      I agree to the terms and conditions
+                      <a
+                        href="#"
+                        className="border-b border-gray-500 border-dotted"
+                      >
+                        Terms of Service
+                      </a>
+                      and its
+                      <a
+                        href="#"
+                        className="border-b border-gray-500 border-dotted"
+                      >
+                        Privacy Policy
+                      </a>
+                    </p>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

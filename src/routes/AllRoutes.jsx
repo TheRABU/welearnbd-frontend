@@ -6,6 +6,7 @@ import JoinTeacherPage from "../pages/JoinTeacherPage/JoinTeacherPage";
 import Coursedetails from "../pages/CourseDetailspage/Coursedetails";
 import SignUp from "../pages/SignUppage/SignUp";
 import Login from "../pages/Loginpage/Login";
+import SignUpLayout from "../layouts/SignUpLayout";
 
 /* 
 TODO: make the courseDetails page private
@@ -32,6 +33,12 @@ const router = createBrowserRouter([
         path: "/joinTeacher",
         element: <JoinTeacherPage />,
       },
+    ],
+  },
+  {
+    path: "/",
+    element: <SignUpLayout />,
+    children: [
       {
         path: "/signUp",
         element: <SignUp />,
