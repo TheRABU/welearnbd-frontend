@@ -1,30 +1,47 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(true);
-  const { CreateNewUser, updateUserProfile } = useAuth();
+  const { CreateNewUser } = useAuth();
 
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
-  } = useForm();
+    formState: { isSubmitSuccessful },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  // clear form after submitting
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        name: "",
+        email: "",
+        password: "",
+      });
+    }
+  }, [isSubmitSuccessful, reset]);
+
   const onSubmit = async (data) => {
     try {
       const result = await CreateNewUser(data.email, data.password);
       const loggedUser = result.user;
-
-      // update the name if name is given
-      await updateUserProfile(loggedUser, {
-        displayName: data.name,
-      });
+      toast.success("Account created Successfully");
       console.log(loggedUser);
     } catch (error) {
+      toast.error("Sorry could not create user Try again");
       console.log("Could not authenticate firebase now");
       throw new Error();
     }
@@ -62,8 +79,14 @@ const SignUp = () => {
                     </div>
                     <span className="ml-4">Sign Up with Google</span>
                   </button>
+                  <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 my-4 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                    <div className="bg-white p-1 rounded-full">
+                      <img className="w-6" src="fb-icon.svg" alt="fb-icon" />
+                    </div>
+                    <span className="ml-4">Sign Up with Facebook</span>
+                  </button>
 
-                  <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
+                  {/* <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                     <div className="bg-white p-1 rounded-full">
                       <svg className="w-6" viewBox="0 0 32 32">
                         <path
@@ -73,7 +96,7 @@ const SignUp = () => {
                       </svg>
                     </div>
                     <span className="ml-4">Sign Up with GitHub</span>
-                  </button>
+                  </button> */}
                   <div className="mt-3">
                     <p className="text-neutral-900">
                       Already have an account?
@@ -150,7 +173,7 @@ const SignUp = () => {
                         className="absolute mt-4 ml-2 cursor-pointer"
                         onClick={() => setShowPass(!showPass)}
                       >
-                        {showPass ? <FaEyeSlash /> : <FaEye />}
+                        {showPass ? <FaEye /> : <FaEyeSlash />}
                       </span>
 
                       {/* <FaEye
@@ -197,6 +220,7 @@ const SignUp = () => {
                     </p>
                   </div>
                 </form>
+                <Toaster position="top-center" reverseOrder={false} />
               </div>
             </div>
           </div>
