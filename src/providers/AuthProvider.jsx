@@ -15,7 +15,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
@@ -50,7 +50,11 @@ const AuthProvider = ({ children }) => {
     return updateProfile(user, {
       displayName: name,
       photoURL: photo,
-    });
+    })
+      .then(() => {
+        console.log("Updated username and photo");
+      })
+      .catch((error) => console.log(error));
   };
   // update email address
   const updateUserEmail = (newEmail) => {

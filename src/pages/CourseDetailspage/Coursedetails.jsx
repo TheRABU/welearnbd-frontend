@@ -41,8 +41,8 @@ const Coursedetails = () => {
             Course contents
           </p>
           <div className="">
-            {details.courseSyllabus?.map((item) => (
-              <Accordian key={details._id} eachCourseSyllabus={item} />
+            {details.courseSyllabus?.map((item, idx) => (
+              <Accordian key={idx} eachCourseSyllabus={item} />
             ))}
           </div>
         </aside>

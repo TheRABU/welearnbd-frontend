@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 const Login = () => {
   const [showPass, setShowPass] = useState(true);
   const { signInExisting } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -35,6 +36,7 @@ const Login = () => {
       const result = await signInExisting(data.email, data.password);
       const loginInfo = result.user;
       toast.success(`Logged In ${data.email}`);
+      navigate("/");
       console.log(loginInfo);
     } catch (error) {
       toast.error("Could not login. Try again later");

@@ -67,20 +67,35 @@ const FloatingNav = () => {
             {isOpen ? (
               <div className="flex flex-col items-center absolute top-12 z-[10] my-5 p-2 mx-auto h-auto w-56 rounded-md bg-[#260C1A]">
                 <div className="flex flex-col py-3 w-full">
-                  <Link className="bg-[#FEFAF6] text-black mt-2 px-5 py-2 rounded-lg">
-                    ALi baba
+                  <Link
+                    to="/"
+                    className="bg-[#FEFAF6] text-black mt-2 px-5 py-2 rounded-lg"
+                  >
+                    Home
                   </Link>
-                  <Link className="bg-white text-black mt-2 px-5 py-2 rounded-lg">
-                    ALi baba 2
+                  <Link
+                    to="/allCourses"
+                    className="bg-white text-black mt-2 px-5 py-2 rounded-lg"
+                  >
+                    All courses
                   </Link>
-                  <Link className="bg-white text-black mt-2 px-5 py-2 rounded-lg">
-                    ALi baba 3
+                  <Link
+                    to="/joinTeacher"
+                    className="bg-white text-black mt-2 px-5 py-2 rounded-lg"
+                  >
+                    Join as a teacher
                   </Link>
-                  <Link className="bg-white text-black mt-2 px-5 py-2 rounded-lg">
-                    ALi baba 4
+                  <Link
+                    to="/signUp"
+                    className="bg-white text-black mt-2 px-5 py-2 rounded-lg"
+                  >
+                    Sign Up
                   </Link>
-                  <Link className="bg-white text-black mt-2 px-5 py-2 rounded-lg">
-                    ALi baba 5
+                  <Link
+                    to="/login"
+                    className="bg-white text-black mt-2 px-5 py-2 rounded-lg"
+                  >
+                    Login
                   </Link>
                 </div>
               </div>
@@ -111,19 +126,23 @@ const FloatingNav = () => {
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <UserDropdown />
-            <Link
-              className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-              to="/signUp"
-            >
-              Sign up
-            </Link>
-            <Link
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-              to="/login"
-            >
-              Login
-            </Link>
+            {user && <UserDropdown />}
+            {!user && (
+              <div className="flex items-center justify-end gap-x-3">
+                <Link
+                  className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
+                  to="/signUp"
+                >
+                  Sign up
+                </Link>
+                <Link
+                  className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
@@ -7,8 +7,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(true);
-  const { CreateNewUser } = useAuth();
-
+  const { CreateNewUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -28,6 +28,7 @@ const SignUp = () => {
     if (isSubmitSuccessful) {
       reset({
         name: "",
+        photo: "",
         email: "",
         password: "",
       });
@@ -36,9 +37,11 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      const result = await CreateNewUser(data.email, data.password);
+      const result = CreateNewUser(data.email, data.password);
       const loggedUser = result.user;
+      // await updateUserProfile(data.name, data.photo);
       toast.success("Account created Successfully");
+      navigate("/");
       console.log(loggedUser);
     } catch (error) {
       toast.error("Sorry could not create user Try again");
@@ -129,6 +132,14 @@ const SignUp = () => {
                       {errors.name && (
                         <p className="text-red-600">{errors.name.message}</p>
                       )}
+                    </div>
+                    <div className="mb-5">
+                      <input
+                        {...register("photo")}
+                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                        type="photo"
+                        placeholder="Photo"
+                      />
                     </div>
                     <div>
                       <input
