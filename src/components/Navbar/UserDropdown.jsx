@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAuth from "../../hooks/useAuth";
+import toast, { Toaster } from "react-hot-toast";
 
 const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,9 @@ const UserDropdown = () => {
   const { logOut } = useAuth();
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        toast.success("Logged Out successfully");
+      })
       .catch();
   };
   return (
@@ -46,19 +49,19 @@ const UserDropdown = () => {
             to="/my-requests"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
-            My added food items
+            My courses
           </Link>
           <Link
             to="/request"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
-            Add a food item
+            Enroll a new Course
           </Link>
           <Link
             to="/my-orders"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
-            My ordered food item
+            My purchased courses
           </Link>
           <hr className="border-gray-200" />
           <Link
@@ -78,6 +81,7 @@ const UserDropdown = () => {
           </Link>
         </div>
       )}
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };

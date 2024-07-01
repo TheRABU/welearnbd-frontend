@@ -1,18 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 const Login = () => {
   const [showPass, setShowPass] = useState(true);
+  const { signInExisting } = useAuth();
   const {
     register,
     handleSubmit,
-
+    reset,
+    formState: { isSubmitSuccessful },
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  // clear form after submitting
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        name: "",
+        email: "",
+        password: "",
+      });
+    }
+  }, [isSubmitSuccessful, reset]);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const result = await signInExisting(data.email, data.password);
+      const loginInfo = result.user;
+      toast.success(`Logged In ${data.email}`);
+      console.log(loginInfo);
+    } catch (error) {
+      toast.error("Could not login. Try again later");
+      console.log("CANNOT LOGIN NOW");
+      throw new Error();
+    }
   };
 
   return (
@@ -117,7 +145,7 @@ const Login = () => {
                         className="absolute mt-4 ml-2 cursor-pointer"
                         onClick={() => setShowPass(!showPass)}
                       >
-                        {showPass ? <FaEyeSlash /> : <FaEye />}
+                        {showPass ? <FaEye /> : <FaEyeSlash />}
                       </span>
 
                       {/* <FaEye
@@ -164,6 +192,7 @@ const Login = () => {
                     </p>
                   </div>
                 </form>
+                <Toaster position="top-center" reverseOrder={false} />
               </div>
             </div>
           </div>
