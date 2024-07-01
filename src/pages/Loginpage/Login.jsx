@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 const Login = () => {
   const [showPass, setShowPass] = useState(true);
-  const { signInExisting } = useAuth();
+  const { signInExisting, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -44,6 +44,18 @@ const Login = () => {
       throw new Error();
     }
   };
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then(() => {
+        navigate("/");
+        toast.success("Logged In");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error("Courld not login. Try again later");
+        throw new Error();
+      });
+  };
 
   return (
     <>
@@ -54,7 +66,10 @@ const Login = () => {
               <h1 className="text-2xl xl:text-3xl font-extrabold">Log In</h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex flex-col items-center">
-                  <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                  <button
+                    onClick={handleGoogleLogin}
+                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                  >
                     <div className="bg-white p-2 rounded-full">
                       <svg className="w-4" viewBox="0 0 533.5 544.3">
                         <path

@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(true);
-  const { CreateNewUser, updateUserProfile } = useAuth();
+  const { CreateNewUser } = useAuth();
   const navigate = useNavigate();
   const {
     register,
