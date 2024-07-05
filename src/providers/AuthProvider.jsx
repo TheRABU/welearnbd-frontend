@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
+
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -14,6 +15,7 @@ import {
   updatePassword,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -29,6 +31,22 @@ const AuthProvider = ({ children }) => {
   const CreateNewUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+  // register user from backend code
+  const CreateUserFromBackend = async (formData) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/users/register`,
+        formData
+      );
+      setLoading(false);
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      setLoading(false);
+      throw new Error("Error creating user using backend");
+    }
   };
 
   // sign in with existing account
@@ -96,6 +114,7 @@ const AuthProvider = ({ children }) => {
     updateUserEmail,
     updateUserPassword,
     requestPassReset,
+    CreateUserFromBackend,
   };
   return (
     <AuthContext.Provider value={authInformation}>

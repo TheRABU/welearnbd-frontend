@@ -4,10 +4,12 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(true);
-  const { CreateNewUser } = useAuth();
+  const [image, setImage] = useState(null);
+  const { CreateNewUser, CreateUserFromBackend } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -34,18 +36,45 @@ const SignUp = () => {
       });
     }
   }, [isSubmitSuccessful, reset]);
-
+  // image handler
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+  // form submit
   const onSubmit = async (data) => {
     try {
-      const result = CreateNewUser(data.email, data.password);
-      const loggedUser = result.user;
-      // await updateUserProfile(data.name, data.photo);
-      toast.success("Account created Successfully");
-      navigate("/");
-      console.log(loggedUser);
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      if (image) {
+        formData.append("avatar", image);
+      }
+
+      // const result = await axios.post("/api/users/register", formData, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // });
+      // console.log("Response from backend api:", result);
+      // const loggedUser = result.data.user;
+
+      try {
+        const result = await CreateUserFromBackend(formData);
+        console.log(result);
+        toast.success("Account created Successfully");
+        navigate("/");
+      } catch (error) {
+        toast.error("Sorry, could not create user. Try again");
+        console.log("Could not create user", error);
+      }
+
+      // toast.success("Account created Successfully");
+      // navigate("/");
+      // console.log(loggedUser);
     } catch (error) {
       toast.error("Sorry could not create user Try again");
-      console.log("Could not authenticate firebase now");
+      console.log("Could not create user from backend", error.message);
       throw new Error();
     }
   };
@@ -135,10 +164,11 @@ const SignUp = () => {
                     </div>
                     <div className="mb-5">
                       <input
-                        {...register("photo")}
+                        onChange={handleImageChange}
+                        {...register("avatar")}
                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                        type="photo"
-                        placeholder="Photo"
+                        type="file"
+                        placeholder="Upload Photo"
                       />
                     </div>
                     <div>

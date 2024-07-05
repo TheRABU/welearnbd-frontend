@@ -52,7 +52,7 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        toast.error("Courld not login. Try again later");
+        toast.error("Could not login. Try again later");
         throw new Error();
       });
   };
