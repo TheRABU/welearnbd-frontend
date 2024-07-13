@@ -10,7 +10,7 @@ const useFetchSingleCourse = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/courses/${id}`
+          `${import.meta.env.VITE_API_URL}/api/v1/courses/${id}`
         );
         setDetails(response.data);
       } catch (error) {

@@ -9,7 +9,7 @@ const TopCourseSection = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/courses`
+          `${import.meta.env.VITE_API_URL}/api/v1/courses`
         );
         const filteredPopularCourses = response.data.filter((item) =>
           item.category.includes("popular")

@@ -37,15 +37,21 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/users/register`,
-        formData
+        `${import.meta.env.VITE_API_URL}/api/v1/users/register`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       setLoading(false);
       console.log(response);
       return response.data;
     } catch (error) {
       setLoading(false);
-      throw new Error("Error creating user using backend");
+      console.error("Error creating user:", error.message);
+      throw new Error(error.message);
     }
   };
 

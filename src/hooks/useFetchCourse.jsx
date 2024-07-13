@@ -14,8 +14,9 @@ const useFetchCourse = () => {
     const initialRun = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/courses`
+          `${import.meta.env.VITE_API_URL}/api/v1/courses`
         );
+
         setCategory(response.data);
       } catch (error) {
         console.log(error.message);

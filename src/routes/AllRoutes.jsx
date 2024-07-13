@@ -12,6 +12,7 @@ import SignUp from "../pages/SignUppage/SignUp";
 import Login from "../pages/Loginpage/Login";
 import SignUpLayout from "../layouts/SignUpLayout";
 import useAuth from "../hooks/useAuth";
+import VerifyAccount from "../pages/SignUppage/Verify";
 
 /* 
 TODO: make the courseDetails page private
@@ -50,6 +51,10 @@ const AllRoutesFunc = () => {
         {
           path: "/signUp",
           element: !user ? <SignUp /> : <Navigate to="/" />,
+        },
+        {
+          path: "/verify/:token",
+          element: !user ? <VerifyAccount /> : <Navigate to="/" />,
         },
         {
           path: "/login",
