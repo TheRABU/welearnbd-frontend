@@ -4,12 +4,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
-import axios from "axios";
+
+import { axiosPublic } from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(true);
-  const [image, setImage] = useState(null);
-  const { CreateNewUser, CreateUserFromBackend } = useAuth();
+  // const [image, setImage] = useState(null);
+  const { CreateNewUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -38,46 +39,83 @@ const SignUp = () => {
     }
   }, [isSubmitSuccessful, reset]);
   // image handler
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-  };
+  // const handleImageChange = (e) => {
+  //   const file = e.target.files[0];
+  //   setImage(file);
+  // };
   // form submit
   const onSubmit = async (data) => {
     try {
-      // console.log(data);
-      //test
+      // CreateNewUser(data.email, data.password).then((result) => {
+      //   const loggedUser = result.user;
+      //   console.log(loggedUser);
+      //   updateUserProfile(data.name, data?.photo).then(() => {
+      //     const userInfo = {
+      //       name: data.name,
+      //       email: data.email,
+      //       password: data.password,
+      //     };
+      //     axiosPublic
+      //       .post("/api/v1/users/new-user-signup", userInfo)
+      //       .then((res) => {
+      //         console.log("Entire response",res);
+      //         console.log("")
+      //         if (res.data.insertedId) {
+      //           console.log("User was added to daatabase");
+      //           reset();
+      //         } else {
+      //           toast.error(res.data.message);
+      //         }
+      //       })
+      //       .catch((error) => console.log(error));
+      //   });
+      // });
 
-      const formData = new FormData();
-      if (image) {
-        formData.append("image", image);
-      }
-      formData.append("name", data.name);
-      formData.append("email", data.email);
-      formData.append("password", data.password);
+      const result = await CreateNewUser(data.email, data.password);
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      await updateUserProfile(data.name, data?.photo);
 
-      console.log(data);
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      };
 
-      const response = await fetch(
-        "http://localhost:5000/api/v1/users/register",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const res = await axiosPublic.post(
+        "/api/v1/users/new-user-signup",
+        userInfo
       );
 
-      if (!response.ok) {
-        const errorResponse = await response.json();
-        toast.error(errorResponse.message);
-        console.error("Error response from server:", errorResponse);
-        throw new Error(errorResponse.error || "Network response was not ok");
+      if (res.data.insertedId) {
+        console.log("User was added to the database");
+        reset();
+        toast.success("User created successfully.");
+        navigate("/");
+      } else {
+        toast.error(res.data.message);
       }
 
-      const result = await response.json();
-      console.log("Response from backend api:", result);
-      const loggedUser = result.user;
-      toast.success("Account created Successfully");
-      navigate("/");
+      // const response = await fetch(
+      //   "http://localhost:5000/api/v1/users/register",
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //   }
+      // );
+
+      // if (!response.ok) {
+      //   const errorResponse = await response.json();
+      //   toast.error(errorResponse.message);
+      //   console.error("Error response from server:", errorResponse);
+      //   throw new Error(errorResponse.error || "Network response was not ok");
+      // }
+
+      // const result = await response.json();
+      // console.log("Response from backend api:", result);
+      // const loggedUser = result.user;
+      // toast.success("Account created Successfully");
+      // navigate("/");
 
       // const loggedUser = result.data.user;
       // console.log(loggedUser);
@@ -93,6 +131,7 @@ const SignUp = () => {
     } catch (error) {
       toast.error("Sorry could not create user Try again");
       console.log("Could not create user from backend", error.message);
+
       throw new Error();
     }
   };
@@ -180,7 +219,7 @@ const SignUp = () => {
                         <p className="text-red-600">{errors.name.message}</p>
                       )}
                     </div>
-                    <div className="mb-5">
+                    {/* <div className="mb-5">
                       <input
                         onChange={handleImageChange}
                         {...register("image")}
@@ -188,7 +227,7 @@ const SignUp = () => {
                         type="file"
                         placeholder="Upload Photo"
                       />
-                    </div>
+                    </div> */}
                     <div>
                       <input
                         {...register("email", {

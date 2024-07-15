@@ -39,8 +39,8 @@ const Login = () => {
       navigate("/");
       console.log(loginInfo);
     } catch (error) {
-      toast.error("Could not login. Try again later");
-      console.log("CANNOT LOGIN NOW");
+      toast.error(`${error.message}`);
+      console.log("CANNOT LOGIN NOW", error.message);
       throw new Error();
     }
   };

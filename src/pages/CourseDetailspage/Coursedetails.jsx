@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import useFetchSingleCourse from "../../hooks/useFetchSingleCourse";
 import Accordian from "./Accordian";
 
 const Coursedetails = () => {
   const [details] = useFetchSingleCourse();
+
   return (
     <>
       <div className="h-full sm:px-2 pt-16 md:px-16 lg:px-32 md:pt-28 2xl:px-80 bg-[#ffffff]">
@@ -25,6 +27,9 @@ const Coursedetails = () => {
               Level of difficulty: {details.level}
             </p>
             <p className="text-xl">$ {details.price}</p>
+            <Link to={`/order/${details._id}`}>
+              <button className="btn btn-secondary">Enroll Now</button>
+            </Link>
           </div>
           {/* IMAGE */}
           <div className="image px-3 md:px-6 w-full lg:w-8/12 lg:max-w-fit overflow-hidden">

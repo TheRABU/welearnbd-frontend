@@ -6,16 +6,15 @@ cloudinary.config({
   api_secret: import.meta.env.VITE_CLOUDINARY_API_SECRET,
 });
 
-const uploadImageToCloudinary = async (file) => {
+const uploadImageToCloudinaryFrontend = async (file) => {
   try {
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("weLearnBD");
+    formData.append("image", file);
 
     const response = await fetch(
       `https://api.cloudinary.com/v1_1/${
         cloudinary.config().cloud_name
-      }/image/upload`,
+      }/weLearnBD/frontend/users/image`,
       {
         method: "POST",
         body: formData,
@@ -30,4 +29,4 @@ const uploadImageToCloudinary = async (file) => {
   }
 };
 
-export default uploadImageToCloudinary;
+export default uploadImageToCloudinaryFrontend;

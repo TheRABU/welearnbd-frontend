@@ -13,6 +13,8 @@ import Login from "../pages/Loginpage/Login";
 import SignUpLayout from "../layouts/SignUpLayout";
 import useAuth from "../hooks/useAuth";
 import VerifyAccount from "../pages/SignUppage/Verify";
+import Order from "../pages/Orderpage/Order";
+import { axiosPublic } from "../hooks/useAxiosPublic";
 
 /* 
 TODO: make the courseDetails page private
@@ -59,6 +61,14 @@ const AllRoutesFunc = () => {
         {
           path: "/login",
           element: !user ? <Login /> : <Navigate to="/" />,
+        },
+        {
+          path: "/order/:id",
+          element: <Order />,
+          loader: ({ params }) =>
+            fetch(
+              `${import.meta.env.VITE_API_URL}/api/v1/courses/${params.id}`
+            ),
         },
       ],
     },

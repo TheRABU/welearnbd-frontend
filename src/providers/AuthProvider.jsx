@@ -15,7 +15,6 @@ import {
   updatePassword,
   updateProfile,
 } from "firebase/auth";
-import axios from "axios";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -33,27 +32,27 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // register user from backend code
-  const CreateUserFromBackend = async (formData) => {
-    setLoading(true);
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/v1/users/register`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setLoading(false);
-      console.log(response);
-      return response.data;
-    } catch (error) {
-      setLoading(false);
-      console.error("Error creating user:", error.message);
-      throw new Error(error.message);
-    }
-  };
+  // const CreateUserFromBackend = async (formData) => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.post(
+  //       `${import.meta.env.VITE_API_URL}/api/v1/users/register`,
+  //       formData,
+  //       {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       }
+  //     );
+  //     setLoading(false);
+  //     console.log(response);
+  //     return response.data;
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.error("Error creating user:", error.message);
+  //     throw new Error(error.message);
+  //   }
+  // };
 
   // sign in with existing account
   const signInExisting = (email, password) => {
@@ -71,14 +70,12 @@ const AuthProvider = ({ children }) => {
   };
   // update profile
   const updateUserProfile = (name, photo) => {
-    return updateProfile(user, {
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     })
-      .then(() => {
-        console.log("Updated username and photo");
-      })
-      .catch((error) => console.log(error));
+      .then(() => {})
+      .catch((error) => console.log(error.message));
   };
   // update email address
   const updateUserEmail = (newEmail) => {
@@ -120,7 +117,6 @@ const AuthProvider = ({ children }) => {
     updateUserEmail,
     updateUserPassword,
     requestPassReset,
-    CreateUserFromBackend,
   };
   return (
     <AuthContext.Provider value={authInformation}>
