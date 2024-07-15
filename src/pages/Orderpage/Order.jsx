@@ -11,6 +11,7 @@ const Order = () => {
     <>
       <div className="border-blue-500 border-2 p-4 mx-3 lg:mx-20 md:p-10 m-3 md:m-10 rounded-md bg-[#ffffff] h-full ">
         <div className="flex-row  lg:flex items-center justify-center py-20 px-6 md:px-20 mx-auto space-x-8">
+          {/* CARD */}
           <div className="parent-div h-auto max-w-md">
             <div className="antialiased text-gray-900 ">
               <div className="flex items-center justify-center">
@@ -18,7 +19,7 @@ const Order = () => {
                   <img
                     className="h-48 w-full object-cover object-end"
                     src={courseImage}
-                    alt="Home in Countryside"
+                    alt="course image"
                   />
                   <div className="p-6">
                     <div className="flex items-baseline">
@@ -36,13 +37,27 @@ const Order = () => {
                     <div className="mt-1">
                       <span>$ {price}</span>
                     </div>
+                    <div className="mt-1">
+                      <h3>By {teacherName}</h3>
+                    </div>
+                    <div className="mt-1">
+                      <h3>Level {level}</h3>
+                    </div>
+                    <div className="mt-3">
+                      <Link to="/allCourses">
+                        <button className="btn bg-teal-200 text-black">
+                          View some more
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           {/* FORM */}
-          <div className="md:max-w-sm lg:max-w-xl p-5 rounded-md  bg-gray-800">
+          <div className="max-w-xl p-5 rounded-md shadow-2xl border-2 border-gray-600 bg-white">
             <form>
               <div className="mb-5">
                 <label
@@ -174,9 +189,9 @@ const Order = () => {
               <div>
                 <button
                   type="submit"
-                  className="hover:shadow-form w-full rounded-md bg-[#FF204E] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+                  className="hover:shadow-form w-full rounded-md bg-[#4C3BCF] py-3 px-8 text-center text-base font-semibold text-white outline-none"
                 >
-                  Order Now
+                  Enroll Now
                 </button>
               </div>
             </form>
