@@ -17,6 +17,7 @@ import VerifyAccount from "../pages/SignUppage/Verify";
 import Enroll from "../pages/EnrollNowPage/EnrollPage";
 import AdminLayout from "../layouts/AdminLayout";
 import ApproveReq from "../pages/Admin/ApproveRequests/ApproveReq";
+import ApprovedReq from "../pages/Admin/ApprovedRequests/ApprovedRequests";
 
 /* 
 TODO: make the courseDetails page private
@@ -81,6 +82,10 @@ const AllRoutesFunc = () => {
         {
           path: "/admin/requests",
           element: <ApproveReq />,
+        },
+        {
+          path: "/admin/approved-requests",
+          element: <ApprovedReq />,
         },
       ],
     },
