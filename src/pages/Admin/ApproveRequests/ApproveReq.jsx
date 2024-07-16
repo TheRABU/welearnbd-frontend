@@ -50,11 +50,11 @@ const ApproveReq = () => {
   };
   return (
     <>
-      <div className="h-auto py-10 border-2 rounded-xl border-gray-600 md:my-8 lg:my-20 mx-2 md:mx-14 lg:mx-36">
+      <div className="h-auto py-10 border-2 rounded-xl border-gray-600 md:my-8 lg:my-12 mx-2 md:mx-14">
         <h2 className="text-4xl text-center text-neutral-700">
           Teacher requests
         </h2>
-        <div className="px-3 md:px-10 lg:px-28 2xl:px-64 h-full py-0 lg:py-16 flex-row items-center ">
+        <div className="px-3 md:px-10 2xl:px-64 h-full py-0 lg:py-16 flex-row items-center">
           {requests.length > 0 ? (
             requests.map((item, idx) => (
               <div
@@ -69,8 +69,8 @@ const ApproveReq = () => {
                 </figure> */}
                 <div className="card-body">
                   <h2 className="card-title">Name: {item.name}</h2>
-                  <p>Email: {item.email}</p>
-                  <p>
+                  <p className="text-neutral-600">Email: {item.email}</p>
+                  <p className="text-neutral-600">
                     Status:{" "}
                     {item.status === "approved" ? (
                       <span className="text-teal-600 font-semibold">
@@ -82,8 +82,10 @@ const ApproveReq = () => {
                       </span>
                     )}
                   </p>
-                  <p>Category: {item.category}</p>
-                  <p>Experience: {item.experience}</p>
+                  <p className="text-neutral-600">Category: {item.category}</p>
+                  <p className="text-neutral-600">
+                    Experience: {item.experience}
+                  </p>
                   <div className="card-actions justify-end">
                     <div className="card-actions justify-end">
                       {item.status === "approved" ? (
@@ -109,7 +111,15 @@ const ApproveReq = () => {
               </div>
             ))
           ) : (
-            <p>No New requests available.</p>
+            <div>
+              <p className="text-center text-3xl text-neutral-700">
+                No New requests available.
+              </p>
+              <img
+                src="https://img.freepik.com/free-vector/warning-concept-illustration_114360-1551.jpg?t=st=1721154658~exp=1721158258~hmac=c970e0838a0e848ce9922970b423f52e13442a1d5630d46997d509548f75ef22&w=740"
+                alt=""
+              />
+            </div>
           )}
         </div>
       </div>
