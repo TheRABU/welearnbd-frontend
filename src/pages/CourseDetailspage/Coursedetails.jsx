@@ -14,7 +14,7 @@ const Coursedetails = () => {
           </h2>
         </div>
 
-        <article className="sm:flex-row lg:flex justify-around items-start py-5">
+        <article className="sm:flex-row lg:flex justify-around items-start my-3 py-5 border-2 border-neutral-600 rounded-lg">
           {/* COURSE INFO */}
           <div className="text-contents px-10 py-10 w-full lg:w-5/12 shrink-0">
             <h2 className="text-5xl text-neutral-700 font-semibold">
@@ -27,9 +27,11 @@ const Coursedetails = () => {
               Level of difficulty: {details.level}
             </p>
             <p className="text-xl">$ {details.price}</p>
-            <Link to={`/order/${details._id}`}>
-              <button className="btn btn-secondary">Enroll Now</button>
-            </Link>
+            <div className="mt-5">
+              <Link to={`/enroll/${details._id}`}>
+                <button className="btn btn-secondary">Enroll Now</button>
+              </Link>
+            </div>
           </div>
           {/* IMAGE */}
           <div className="image px-3 md:px-6 w-full lg:w-8/12 lg:max-w-fit overflow-hidden">

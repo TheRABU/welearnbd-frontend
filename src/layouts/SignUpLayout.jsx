@@ -5,7 +5,7 @@ const SignUpLayout = () => {
   return (
     <div>
       <FloatingNav />
-      <div className="h-auto pt-20">
+      <div className="h-auto pt-20 bg-white">
         <Outlet />
       </div>
     </div>

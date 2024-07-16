@@ -10,7 +10,7 @@ import { axiosPublic } from "../../hooks/useAxiosPublic";
 const SignUp = () => {
   const [showPass, setShowPass] = useState(true);
   // const [image, setImage] = useState(null);
-  const { CreateNewUser, updateUserProfile } = useAuth();
+  const { CreateNewUser, updateUserProfile, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -43,6 +43,29 @@ const SignUp = () => {
   //   const file = e.target.files[0];
   //   setImage(file);
   // };
+
+  const handleGoogleSignUp = () => {
+    signInWithGoogle()
+      .then(() => {
+        // const userInfo = {
+        //   email: result.user?.email,
+        //   name: result.user?.displayName,
+        // };
+        // axiosPublic
+        //   .post("/api/v1/users/new-user-signup", userInfo)
+        //   .then((res) => {
+        //     console.log(res.data);
+        //   });
+        navigate("/");
+        toast.success("Logged In");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error("Could not login. Try again later");
+        throw new Error();
+      });
+  };
+
   // form submit
   const onSubmit = async (data) => {
     try {
@@ -145,7 +168,10 @@ const SignUp = () => {
               <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex flex-col items-center">
-                  <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                  <button
+                    onClick={handleGoogleSignUp}
+                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                  >
                     <div className="bg-white p-2 rounded-full">
                       <svg className="w-4" viewBox="0 0 533.5 544.3">
                         <path

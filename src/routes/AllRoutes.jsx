@@ -13,8 +13,10 @@ import Login from "../pages/Loginpage/Login";
 import SignUpLayout from "../layouts/SignUpLayout";
 import useAuth from "../hooks/useAuth";
 import VerifyAccount from "../pages/SignUppage/Verify";
-import Order from "../pages/Orderpage/Order";
-import { axiosPublic } from "../hooks/useAxiosPublic";
+
+import Enroll from "../pages/EnrollNowPage/EnrollPage";
+import AdminLayout from "../layouts/AdminLayout";
+import ApproveReq from "../pages/Admin/ApproveRequests/ApproveReq";
 
 /* 
 TODO: make the courseDetails page private
@@ -63,12 +65,22 @@ const AllRoutesFunc = () => {
           element: !user ? <Login /> : <Navigate to="/" />,
         },
         {
-          path: "/order/:id",
-          element: <Order />,
+          path: "/enroll/:id",
+          element: <Enroll />,
           loader: ({ params }) =>
             fetch(
               `${import.meta.env.VITE_API_URL}/api/v1/courses/${params.id}`
             ),
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <AdminLayout />,
+      children: [
+        {
+          path: "/admin/requests",
+          element: <ApproveReq />,
         },
       ],
     },
