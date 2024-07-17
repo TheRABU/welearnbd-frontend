@@ -53,10 +53,16 @@ const UserDropdown = () => {
           </Link>
 
           <Link
-            to="/request"
+            to="/user/createCourse"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
-            Enroll a new Course
+            Create Course
+          </Link>
+          <Link
+            to="/user/myRequest"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            My teacher request
           </Link>
           <Link
             to="/my-orders"

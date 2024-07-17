@@ -21,6 +21,7 @@ import ApprovedReq from "../pages/Admin/ApprovedRequests/ApprovedRequests";
 import UserLayout from "../layouts/UserLayout";
 import MyTeacherReq from "../pages/User/UserSubmittedRequests/MyTeacherRequest";
 import PrivateRoute from "./PrivateRoute";
+import CreateNewCourse from "../pages/User/UserCreateCourse/CreateCourse";
 
 /* 
 TODO: make the courseDetails page private
@@ -109,6 +110,14 @@ const AllRoutesFunc = () => {
           element: (
             <PrivateRoute>
               <MyTeacherReq />,
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "/user/createCourse",
+          element: (
+            <PrivateRoute>
+              <CreateNewCourse />
             </PrivateRoute>
           ),
         },
