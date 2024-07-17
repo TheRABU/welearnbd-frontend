@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
 
-import LeftSideBar from "../components/AdminComponents/LeftSide";
+import LeftSideUserBar from "../components/UserComponents/LeftSideUserBar";
 import MobileLeftSideBar from "../components/AdminComponents/MobileLeftSide";
-
-const AdminLayout = () => {
+const UserLayout = () => {
   return (
     <>
       <div className="h-screen flex flex-col">
         {/* <FloatingNav /> */}
         <div className="wrapper flex flex-grow overflow-hidden">
           <div className="hidden lg:block w-3/12 bg-white h-full">
-            <LeftSideBar />
+            <LeftSideUserBar />
           </div>
           <div className="block lg:hidden lg:h-full">
             <MobileLeftSideBar />
@@ -24,4 +23,4 @@ const AdminLayout = () => {
   );
 };
 
-export default AdminLayout;
+export default UserLayout;

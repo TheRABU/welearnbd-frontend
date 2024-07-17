@@ -18,6 +18,9 @@ import Enroll from "../pages/EnrollNowPage/EnrollPage";
 import AdminLayout from "../layouts/AdminLayout";
 import ApproveReq from "../pages/Admin/ApproveRequests/ApproveReq";
 import ApprovedReq from "../pages/Admin/ApprovedRequests/ApprovedRequests";
+import UserLayout from "../layouts/UserLayout";
+import MyTeacherReq from "../pages/User/UserSubmittedRequests/MyTeacherRequest";
+import PrivateRoute from "./PrivateRoute";
 
 /* 
 TODO: make the courseDetails page private
@@ -81,11 +84,33 @@ const AllRoutesFunc = () => {
       children: [
         {
           path: "/admin/requests",
-          element: <ApproveReq />,
+          element: (
+            <PrivateRoute>
+              <ApproveReq />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/admin/approved-requests",
-          element: <ApprovedReq />,
+          element: (
+            <PrivateRoute>
+              <ApprovedReq />
+            </PrivateRoute>
+          ),
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <UserLayout />,
+      children: [
+        {
+          path: "/user/myRequest",
+          element: (
+            <PrivateRoute>
+              <MyTeacherReq />,
+            </PrivateRoute>
+          ),
         },
       ],
     },

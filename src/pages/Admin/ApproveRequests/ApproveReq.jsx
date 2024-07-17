@@ -50,7 +50,7 @@ const ApproveReq = () => {
   };
   return (
     <>
-      <div className="h-auto py-10 border-2 rounded-xl border-gray-600 md:my-8 lg:my-12 mx-2 md:mx-14">
+      <div className="h-auto py-10 border-2 rounded-xl border-gray-600 my-8 lg:my-12 mx-2 md:mx-14">
         <h2 className="text-4xl text-center text-neutral-700">
           Teacher requests
         </h2>

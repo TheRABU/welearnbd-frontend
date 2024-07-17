@@ -38,7 +38,7 @@ const JoinTeacherPage = () => {
     );
     console.log(response.data);
     Swal.fire({
-      title: "Good job!",
+      title: "Sent request!",
       text: "You request to become a teacher is submitted wait for reply from admin",
       icon: "success",
     });
@@ -167,9 +167,9 @@ const JoinTeacherPage = () => {
         </div>
       </div>
       {/* Joining FORM  */}
-      <div className="wrapper-form">
+      <div className="wrapper-form h-screen mt-8 ">
         <div className="bg-white border-4 rounded-lg shadow relative m-10">
-          <div className="p-6 space-y-6">
+          <div className="p-6 my-12 space-y-6">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
