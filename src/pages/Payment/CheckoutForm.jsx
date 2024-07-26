@@ -1,72 +1,141 @@
-import {
-  PaymentElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import useCart from "../../hooks/useCartHook";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const [error, setError] = useState("");
+  const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const [errorMessage, setErrorMessage] = useState(null);
-  const courseDetail = useLoaderData();
-  const { price } = courseDetail;
+  const [cart, refetch] = useCart();
+  const { user } = useAuth();
 
-  //   useEffect(() => {
-  //     const sendRequest = async () => {
-  //       try {
-  //         const res = await axios.post("/api/v1/payment/create-intent", {
-  //           price,
-  //         });
-  //         console.log(res.data.clientSecret);
-  //         setClientSecret(res.data.clientSecret);
-  //       } catch (error) {
-  //         console.log(error.message);
-  //         setErrorMessage(error.message);
-  //       }
-  //     };
-  //     sendRequest();
-  //   }, [price]);
+  const navigate = useNavigate();
 
+  // create total price
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+
+  useEffect(() => {
+    const sendDataToBackend = async () => {
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/v1/payment/create-intent`,
+          { price: totalPrice }
+        );
+        setClientSecret(res.data.clientSecret);
+      } catch (error) {
+        console.log(error.message);
+        throw new error();
+      }
+    };
+    sendDataToBackend();
+  }, [totalPrice]);
+
+  // submit handler
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (!stripe || !elements || !clientSecret) {
-      setErrorMessage("Stripe has not been initialized properly.");
+    if (!stripe || !elements) {
       return;
     }
-
-    const { error: submitError } = await elements.submit();
-    if (submitError) {
-      setErrorMessage(submitError.message);
+    const card = elements.getElement(CardElement);
+    if (card == null) {
       return;
     }
-
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: "https://example.com/order/123/complete",
-      },
+    // Use your card Element with other Stripe.js APIs
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card,
     });
 
     if (error) {
-      setErrorMessage(error.message);
+      console.log("[error]", error);
+      setError(error.message);
     } else {
-      setErrorMessage("Payment successful!");
+      console.log("[PaymentMethod]", paymentMethod);
+      setError("");
+    }
+
+    // confirm payment
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            email: user?.email || "anonymous",
+            name: user?.displayName || "anonymous",
+          },
+        },
+      });
+    if (confirmError) {
+      console.log("confirmError", confirmError.message);
+    } else {
+      if (paymentIntent.status === "succeeded") {
+        setTransactionId(paymentIntent.id);
+        const payment = {
+          email: user?.email,
+          price: totalPrice,
+          transactionId: paymentIntent.id,
+          date: new Date(),
+          cartIds: cart.map((item) => item._id),
+          cartItemIds: cart.map((item) => item.cartItemId),
+          status: "pending",
+        };
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/v1/payment/save-payment`,
+          payment
+        );
+        refetch();
+        if (res.data.message) {
+          Swal.fire({
+            title: "Payment success!",
+            text: `Transaction id: ${paymentIntent.id}, ${res.data.message}`,
+            icon: "success",
+            timer: 3000,
+          });
+          navigate("/");
+        }
+      }
     }
   };
-
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <PaymentElement id="payment-element" options={{ clientSecret }} />
-        <button className="btn btn-primary" type="submit" disabled={!stripe}>
+        <CardElement
+          options={{
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
+                },
+              },
+              invalid: {
+                color: "#9e2146",
+              },
+            },
+          }}
+        />
+        <button
+          className="btn btn-primary"
+          type="submit"
+          disabled={!stripe || !clientSecret}
+        >
           Pay
         </button>
-        {errorMessage && <div>{errorMessage}</div>}
+        <div>
+          <p className="text-red-600 text-xl font-semibold">{error}</p>
+          {transactionId && (
+            <p className="text-xl font-semibold text-green-600">
+              Your Transaction id: {transactionId}
+            </p>
+          )}
+        </div>
       </form>
     </>
   );

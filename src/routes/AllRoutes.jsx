@@ -25,6 +25,7 @@ import PrivateRoute from "./PrivateRoute";
 import CreateNewCourse from "../pages/User/UserCreateCourse/CreateCourse";
 import PaymentPage from "../pages/Payment/PaymentPage";
 import MyCart from "../pages/User/MyCart/MyCart";
+import MyPaymentHistoryPage from "../pages/User/UserPaymentHistory/MyPaymentHistoryPage";
 
 /* 
 TODO: make the courseDetails page private
@@ -91,6 +92,14 @@ const AllRoutesFunc = () => {
         {
           path: "/myCart",
           element: <MyCart />,
+        },
+        {
+          path: "/makePayment",
+          element: <PaymentPage />,
+        },
+        {
+          path: "/myPaymentHistory",
+          element: <MyPaymentHistoryPage />,
         },
       ],
     },
