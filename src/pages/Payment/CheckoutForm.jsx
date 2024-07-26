@@ -79,6 +79,7 @@ const CheckoutForm = () => {
         const payment = {
           email: user?.email,
           price: totalPrice,
+          courseName: cart.map((item) => item.courseName),
           transactionId: paymentIntent.id,
           date: new Date(),
           cartIds: cart.map((item) => item._id),
@@ -95,7 +96,7 @@ const CheckoutForm = () => {
             title: "Payment success!",
             text: `Transaction id: ${paymentIntent.id}, ${res.data.message}`,
             icon: "success",
-            timer: 3000,
+            timer: 5000,
           });
           navigate("/");
         }

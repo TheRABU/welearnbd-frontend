@@ -89,18 +89,6 @@ const AllRoutesFunc = () => {
               `${import.meta.env.VITE_API_URL}/api/v1/courses/${params.id}`
             ),
         },
-        {
-          path: "/myCart",
-          element: <MyCart />,
-        },
-        {
-          path: "/makePayment",
-          element: <PaymentPage />,
-        },
-        {
-          path: "/myPaymentHistory",
-          element: <MyPaymentHistoryPage />,
-        },
       ],
     },
     {
@@ -130,7 +118,7 @@ const AllRoutesFunc = () => {
       element: <UserLayout />,
       children: [
         {
-          path: "/user/myRequest",
+          path: "/myRequest",
           element: (
             <PrivateRoute>
               <MyTeacherReq />,
@@ -138,12 +126,24 @@ const AllRoutesFunc = () => {
           ),
         },
         {
-          path: "/user/createCourse",
+          path: "/createCourse",
           element: (
             <PrivateRoute>
               <CreateNewCourse />
             </PrivateRoute>
           ),
+        },
+        {
+          path: "/myCart",
+          element: <MyCart />,
+        },
+        {
+          path: "/makePayment",
+          element: <PaymentPage />,
+        },
+        {
+          path: "/myPaymentHistory",
+          element: <MyPaymentHistoryPage />,
         },
       ],
     },
