@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaCartArrowDown } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 import UserDropdown from "./UserDropdown";
+import useCart from "../../hooks/useCartHook";
 const FloatingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, logOut } = useAuth();
+  const { user } = useAuth();
+  const [cart] = useCart();
 
   return (
     <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg 2xl:max-w-screen-2xl">
@@ -97,6 +100,11 @@ const FloatingNav = () => {
                   >
                     Login
                   </Link>
+                  <Link to="/myCart">
+                    <div className="badge badge-secondary">
+                      <FaCartArrowDown className="mr-2" />+ {cart.length}
+                    </div>
+                  </Link>
                 </div>
               </div>
             ) : (
@@ -123,6 +131,11 @@ const FloatingNav = () => {
               to="/joinTeacher"
             >
               Join as a Teacher
+            </Link>
+            <Link to="/myCart">
+              <div className="badge badge-secondary">
+                <FaCartArrowDown className="mr-2" />+ {cart.length}
+              </div>
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">

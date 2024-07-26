@@ -1,5 +1,19 @@
 import { Link, useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../Payment/CheckoutForm";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_TEST_KEY);
+const options = {
+  mode: "payment",
+  amount: 1099,
+  currency: "usd",
+  // Fully customizable with appearance API.
+  appearance: {
+    /*...*/
+  },
+};
 
 const Enroll = () => {
   const courseDetail = useLoaderData();
@@ -63,143 +77,9 @@ const Enroll = () => {
 
             {/* FORM */}
             <div className="max-w-xl p-5 rounded-md shadow-2xl border-2 border-gray-600 bg-white">
-              <form>
-                <div className="mb-5">
-                  <label
-                    htmlFor="name"
-                    className="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    disabled={true}
-                    defaultValue={user?.displayName}
-                    placeholder="Enter your Name"
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
-                <div className="mb-5">
-                  <label
-                    htmlFor="email"
-                    className="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    disabled={true}
-                    defaultValue={user?.email}
-                    placeholder="Enter your email"
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
-                <div className="-mx-3 flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2">
-                    <div className="mb-5">
-                      <label
-                        htmlFor="date"
-                        className="mb-3 block text-base font-medium text-[#07074D]"
-                      >
-                        Date
-                      </label>
-                      <input
-                        type="date"
-                        name="date"
-                        id="date"
-                        required={true}
-                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-3 sm:w-1/2">
-                    <div className="mb-5">
-                      <label
-                        htmlFor="time"
-                        className="mb-3 block text-base font-medium text-[#07074D]"
-                      >
-                        Time
-                      </label>
-                      <input
-                        type="time"
-                        name="time"
-                        id="time"
-                        required={true}
-                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* <div className="mb-5 pt-3">
-                  <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
-                    Address Details
-                  </label>
-                  <div className="-mx-3 flex flex-wrap">
-                    <div className="w-full px-3 sm:w-1/2">
-                      <div className="mb-5">
-                        <input
-                          type="text"
-                          name="area"
-                          id="area"
-                          placeholder="Enter area"
-                          required={true}
-                          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                        />
-                      </div>
-                    </div>
-                    <div className="w-full px-3 sm:w-1/2">
-                      <div className="mb-5">
-                        <input
-                          type="text"
-                          name="city"
-                          id="city"
-                          placeholder="Enter city"
-                          required={true}
-                          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                        />
-                      </div>
-                    </div>
-                    <div className="w-full px-3 sm:w-1/2">
-                      <div className="mb-5">
-                        <input
-                          type="text"
-                          name="state"
-                          id="state"
-                          placeholder="Enter state"
-                          required={true}
-                          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                        />
-                      </div>
-                    </div>
-                    <div className="w-full px-3 sm:w-1/2">
-                      <div className="mb-5">
-                        <input
-                          type="text"
-                          name="postCode"
-                          id="post-code"
-                          placeholder="Post Code"
-                          required={true}
-                          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-
-                <div>
-                  <button
-                    type="submit"
-                    className="hover:shadow-form w-full rounded-md bg-[#4C3BCF] py-3 px-8 text-center text-base font-semibold text-white outline-none"
-                  >
-                    Enroll Now
-                  </button>
-                </div>
-              </form>
+              <Elements stripe={stripePromise} options={options}>
+                <CheckoutForm />
+              </Elements>
             </div>
           </div>
         </div>

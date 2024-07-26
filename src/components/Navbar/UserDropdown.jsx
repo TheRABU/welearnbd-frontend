@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
+import { FaCartArrowDown } from "react-icons/fa";
+import useCart from "../../hooks/useCartHook";
 
 const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useContext(AuthContext) || {};
+  const [cart] = useCart();
   const { logOut } = useAuth();
   const handleLogOut = () => {
     logOut()
@@ -51,7 +54,12 @@ const UserDropdown = () => {
           >
             My courses
           </Link>
-
+          <Link to="/myCart">
+            <div className="badge badge-secondary">
+              My Cart
+              <FaCartArrowDown className="mr-2" />+ {cart.length}
+            </div>
+          </Link>
           <Link
             to="/user/createCourse"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"

@@ -1,10 +1,54 @@
 import { Link } from "react-router-dom";
 import useFetchSingleCourse from "../../hooks/useFetchSingleCourse";
 import Accordian from "./Accordian";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const Coursedetails = () => {
   const [details] = useFetchSingleCourse();
+  const { user } = useAuth();
 
+  const handleAddToCart = async (details) => {
+    if (user && user.email) {
+      const cartItem = {
+        cartItemId: details._id,
+        email: user.email,
+        price: details.price,
+        level: details.level,
+        teacherName: details.teacherName,
+        courseName: details.courseName,
+        courseImage: details.courseImage,
+      };
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/v1/cart`,
+          cartItem
+        );
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${res.data.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } catch (error) {
+        console.log("Error adding to cart: ", error.message);
+        Swal.fire({
+          title: "Error",
+          text: "There was an error adding the item to your cart.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    } else {
+      Swal.fire({
+        title: "Please Login to add item to cart!",
+        timer: 3000,
+        icon: "warning",
+      });
+    }
+  };
   return (
     <>
       <div className="h-full sm:px-2 pt-16 md:px-16 lg:px-32 md:pt-28 2xl:px-80 bg-[#ffffff]">
@@ -30,6 +74,16 @@ const Coursedetails = () => {
             <div className="mt-5">
               <Link to={`/enroll/${details._id}`}>
                 <button className="btn btn-secondary">Enroll Now</button>
+              </Link>
+            </div>
+            <div className="mt-5">
+              <Link>
+                <button
+                  onClick={() => handleAddToCart(details)}
+                  className="btn bg-orange-500 border-b-8 border-b-black"
+                >
+                  Add to cart
+                </button>
               </Link>
             </div>
           </div>

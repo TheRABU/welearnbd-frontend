@@ -3,6 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Homepage/Home";
 import AllCoursePage from "../pages/AllCoursespage/AllCoursePage";
@@ -22,6 +23,8 @@ import UserLayout from "../layouts/UserLayout";
 import MyTeacherReq from "../pages/User/UserSubmittedRequests/MyTeacherRequest";
 import PrivateRoute from "./PrivateRoute";
 import CreateNewCourse from "../pages/User/UserCreateCourse/CreateCourse";
+import PaymentPage from "../pages/Payment/PaymentPage";
+import MyCart from "../pages/User/MyCart/MyCart";
 
 /* 
 TODO: make the courseDetails page private
@@ -51,6 +54,14 @@ const AllRoutesFunc = () => {
           path: "/joinTeacher",
           element: <JoinTeacherPage />,
         },
+        {
+          path: "/checkout/:id",
+          element: <PaymentPage />,
+          loader: ({ params }) =>
+            fetch(
+              `${import.meta.env.VITE_API_URL}/api/v1/courses/${params.id}`
+            ),
+        },
       ],
     },
     {
@@ -76,6 +87,10 @@ const AllRoutesFunc = () => {
             fetch(
               `${import.meta.env.VITE_API_URL}/api/v1/courses/${params.id}`
             ),
+        },
+        {
+          path: "/myCart",
+          element: <MyCart />,
         },
       ],
     },
