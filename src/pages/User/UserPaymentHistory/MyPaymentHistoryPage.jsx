@@ -84,7 +84,7 @@ const MyPaymentHistoryPage = () => {
                     </div>
                   </td>
 
-                  <td>{item.date}</td>
+                  <td>{new Date(item.date).toLocaleDateString()}</td>
                   <td>{item.status}</td>
                   <td>{item.price}</td>
                 </tr>

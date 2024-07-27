@@ -46,16 +46,14 @@ const SignUp = () => {
 
   const handleGoogleSignUp = () => {
     signInWithGoogle()
-      .then(() => {
-        // const userInfo = {
-        //   email: result.user?.email,
-        //   name: result.user?.displayName,
-        // };
-        // axiosPublic
-        //   .post("/api/v1/users/new-user-signup", userInfo)
-        //   .then((res) => {
-        //     console.log(res.data);
-        //   });
+      .then((result) => {
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+        };
+        axiosPublic.post("/api/v1/new-users", userInfo).then((res) => {
+          console.log(res.data);
+        });
         navigate("/");
         toast.success("Logged In");
       })
@@ -69,88 +67,29 @@ const SignUp = () => {
   // form submit
   const onSubmit = async (data) => {
     try {
-      // CreateNewUser(data.email, data.password).then((result) => {
-      //   const loggedUser = result.user;
-      //   console.log(loggedUser);
-      //   updateUserProfile(data.name, data?.photo).then(() => {
-      //     const userInfo = {
-      //       name: data.name,
-      //       email: data.email,
-      //       password: data.password,
-      //     };
-      //     axiosPublic
-      //       .post("/api/v1/users/new-user-signup", userInfo)
-      //       .then((res) => {
-      //         console.log("Entire response",res);
-      //         console.log("")
-      //         if (res.data.insertedId) {
-      //           console.log("User was added to daatabase");
-      //           reset();
-      //         } else {
-      //           toast.error(res.data.message);
-      //         }
-      //       })
-      //       .catch((error) => console.log(error));
-      //   });
-      // });
-
-      const result = await CreateNewUser(data.email, data.password);
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      await updateUserProfile(data.name, data?.photo);
-
-      const userInfo = {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-      };
-
-      const res = await axiosPublic.post(
-        "/api/v1/users/new-user-signup",
-        userInfo
-      );
-
-      if (res.data.insertedId) {
-        console.log("User was added to the database");
-        reset();
-        toast.success("User created successfully.");
-        navigate("/");
-      } else {
-        toast.error(res.data.message);
-      }
-
-      // const response = await fetch(
-      //   "http://localhost:5000/api/v1/users/register",
-      //   {
-      //     method: "POST",
-      //     body: formData,
-      //   }
-      // );
-
-      // if (!response.ok) {
-      //   const errorResponse = await response.json();
-      //   toast.error(errorResponse.message);
-      //   console.error("Error response from server:", errorResponse);
-      //   throw new Error(errorResponse.error || "Network response was not ok");
-      // }
-
-      // const result = await response.json();
-      // console.log("Response from backend api:", result);
-      // const loggedUser = result.user;
-      // toast.success("Account created Successfully");
-      // navigate("/");
-
-      // const loggedUser = result.data.user;
-      // console.log(loggedUser);
-
-      // const result = await CreateUserFromBackend(formData);
-
-      // toast.success("Account created Successfully");
-      // navigate("/");
-
-      // toast.success("Account created Successfully");
-      // navigate("/");
-      // console.log(loggedUser);
+      CreateNewUser(data.email, data.password).then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        updateUserProfile(data.name, data?.photo).then(() => {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            // password: data.password,
+          };
+          axiosPublic
+            .post("/api/v1/new-users", userInfo)
+            .then((res) => {
+              console.log("Entire response", res);
+              if (res.data) {
+                console.log("User was added to daatabase");
+                reset();
+              } else {
+                toast.error(res.data.message);
+              }
+            })
+            .catch((error) => console.log(error.message));
+        });
+      });
     } catch (error) {
       toast.error("Sorry could not create user Try again");
       console.log("Could not create user from backend", error.message);

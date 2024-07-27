@@ -29,6 +29,7 @@ const CreateNewCourse = () => {
     e.preventDefault();
     const form = e.target;
     const teacherName = user?.displayName;
+    const teacherEmail = user?.email;
     const courseName = form.courseName.value;
     const category = form.category.value;
     const price = form.price.value;
@@ -46,19 +47,19 @@ const CreateNewCourse = () => {
       const imageUrl = imageResponse.data.data.display_url;
 
       const newCourse = {
-        teacherName,
         courseName,
+        courseImage: imageUrl,
+        teacherName,
+        teacherEmail,
         category,
         price,
         level,
-        imageUrl,
       };
-      console.log(newCourse);
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/v1/courses`,
         newCourse
       );
-      if (response.data.success) {
+      if (response.data.payload) {
         toast.success("Course created successfully");
         form.reset();
       } else {

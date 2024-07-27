@@ -6,6 +6,7 @@ import { FcHome } from "react-icons/fc";
 import { MdPayment } from "react-icons/md";
 import { FcInfo } from "react-icons/fc";
 import { FaCartArrowDown } from "react-icons/fa6";
+import { HiAcademicCap } from "react-icons/hi";
 const LeftSideUserBar = () => {
   const { user, logOut } = useAuth();
 
@@ -85,6 +86,13 @@ const LeftSideUserBar = () => {
             >
               <FcInfo className="text-xl" />
               My teaching status
+            </Link>
+            <Link
+              className="flex items-center justify-start gap-x-3 ml-3"
+              to="/myPublishedCourses"
+            >
+              <HiAcademicCap className="text-xl" />
+              My published courses
             </Link>
           </nav>
 

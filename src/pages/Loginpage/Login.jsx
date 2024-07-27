@@ -38,7 +38,6 @@ const Login = () => {
       const loginInfo = result.user;
       toast.success(`Logged In ${data.email}`);
       navigate("/");
-      console.log(loginInfo);
     } catch (error) {
       toast.error(`${error.message}`);
       console.log("CANNOT LOGIN NOW", error.message);
@@ -47,16 +46,14 @@ const Login = () => {
   };
   const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then(() => {
-        // const userInfo = {
-        //   email: result.user?.email,
-        //   name: result.user?.displayName,
-        // };
-        // axiosPublic
-        //   .post("/api/v1/users/new-user-signup", userInfo)
-        //   .then((res) => {
-        //     console.log(res.data);
-        //   });
+      .then((result) => {
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+        };
+        axiosPublic.post("/api/v1/new-users", userInfo).then((res) => {
+          console.log(res.data);
+        });
         navigate("/");
         toast.success("Logged In");
       })

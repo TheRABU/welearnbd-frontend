@@ -19,7 +19,6 @@ const MyTeacherReq = () => {
         console.log(response.data);
         if (response.data.payload.length > 0) {
           setMyRequest(response.data.payload[0]);
-          console.log(response.data.payload);
         } else {
           setMyRequest(null);
         }

@@ -26,6 +26,8 @@ import CreateNewCourse from "../pages/User/UserCreateCourse/CreateCourse";
 import PaymentPage from "../pages/Payment/PaymentPage";
 import MyCart from "../pages/User/MyCart/MyCart";
 import MyPaymentHistoryPage from "../pages/User/UserPaymentHistory/MyPaymentHistoryPage";
+import MyPublishedCourse from "../pages/User/MyPublishedCourses/MyPublishedCourse";
+import ShowUsers from "../pages/Admin/ShowAllUsers/ShowUsers";
 
 /* 
 TODO: make the courseDetails page private
@@ -111,6 +113,10 @@ const AllRoutesFunc = () => {
             </PrivateRoute>
           ),
         },
+        {
+          path: "/admin/showAllUsers",
+          element: <ShowUsers />,
+        },
       ],
     },
     {
@@ -144,6 +150,10 @@ const AllRoutesFunc = () => {
         {
           path: "/myPaymentHistory",
           element: <MyPaymentHistoryPage />,
+        },
+        {
+          path: "/myPublishedCourses",
+          element: <MyPublishedCourse />,
         },
       ],
     },

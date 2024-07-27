@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa6";
+import { FcGraduationCap } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import UserDropdown from "./UserDropdown";
 import useCart from "../../hooks/useCartHook";
@@ -105,6 +106,13 @@ const FloatingNav = () => {
                       <FaCartArrowDown className="mr-2" />+ {cart.length}
                     </div>
                   </Link>
+                  {user.isAdmin ? (
+                    <Link>
+                      <FcGraduationCap />
+                    </Link>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             ) : (

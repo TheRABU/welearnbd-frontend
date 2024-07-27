@@ -49,7 +49,7 @@ const UserDropdown = () => {
           onMouseLeave={() => setIsOpen(false)}
         >
           <Link
-            to="/my-requests"
+            to="/myPublishedCourses"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             My courses
@@ -61,19 +61,19 @@ const UserDropdown = () => {
             </div>
           </Link>
           <Link
-            to="/user/createCourse"
+            to="/createCourse"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             Create Course
           </Link>
           <Link
-            to="/user/myRequest"
+            to="/myRequest"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             My teacher request
           </Link>
           <Link
-            to="/my-orders"
+            to="/myPaymentHistory"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             My purchased courses
