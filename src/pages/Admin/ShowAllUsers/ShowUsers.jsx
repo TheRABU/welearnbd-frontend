@@ -1,18 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
-import { useEffect } from "react";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FcGraduationCap } from "react-icons/fc";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+// import { useEffect } from "react";
 
 const ShowUsers = () => {
   const axiosSecure = useAxiosPrivate();
 
   const {
     data: users = [],
+    refetch,
     isLoading,
     error,
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/api/v1/new-users/getAll");
+      console.log("response from axios secure api call", res.data);
       return res.data.payload;
     },
   });
@@ -24,6 +30,62 @@ const ShowUsers = () => {
   //       .then((res) => res.json())
   //       .then((data) => console.log(data));
   //   }, []);
+
+  const handleDeleteUser = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await axiosSecure.delete(`/api/v1/new-users/${id}`);
+          if (res.data.payload) {
+            refetch();
+            toast.success("Course deleted successfully!");
+          } else {
+            toast.dismiss("Sorry could not delete user");
+          }
+        } catch (error) {
+          console.log(error.message);
+          toast.error("Failed to delete the course.");
+        }
+      }
+    });
+  };
+
+  const handleMakeUserAdmin = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, make admin",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await axiosSecure.patch(
+            `/api/v1/new-users/makeAdmin/${id}`
+          );
+          if (res.data.payload) {
+            toast.success("Made user an admin!");
+            refetch();
+          } else {
+            toast.dismiss("Sorry could not make user admin");
+          }
+        } catch (error) {
+          console.log(error.message);
+          toast.error("Failed to delete the course.");
+        }
+      }
+    });
+  };
 
   return (
     <>
@@ -37,20 +99,40 @@ const ShowUsers = () => {
           {/* head */}
           <thead>
             <tr>
+              <th>Serial No.</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Id</th>
               <td>Created At</td>
+              <td>User Role</td>
+              <td>Delete User</td>
+              <td>Make Admin</td>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            {users.map((eachUser) => (
+            {users.map((eachUser, idx) => (
               <tr key={eachUser._id}>
+                <td>{idx + 1}</td>
                 <td>{eachUser.name}</td>
                 <td>{eachUser.email}</td>
-                <td>{eachUser._id}</td>
                 <td>{new Date(eachUser.createdAt).toLocaleDateString()}</td>
+                <td>{eachUser.role}</td>
+                <td>
+                  <button
+                    onClick={() => handleDeleteUser(eachUser._id)}
+                    className="btn bg-red-600 text-white hover:bg-red-500"
+                  >
+                    <RiDeleteBin6Line />
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleMakeUserAdmin(eachUser._id)}
+                    className="btn bg-white hover:bg-gray-300"
+                  >
+                    <FcGraduationCap />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -53,9 +53,14 @@ const SignUp = () => {
         };
         axiosPublic.post("/api/v1/new-users", userInfo).then((res) => {
           console.log(res.data);
+          if (res.data.status === 400) {
+            toast.error("User already exist Log in.");
+            return;
+          } else if (res.data.payload) {
+            navigate("/");
+            toast.success("Logged In");
+          }
         });
-        navigate("/");
-        toast.success("Logged In");
       })
       .catch((err) => {
         console.log(err.message);

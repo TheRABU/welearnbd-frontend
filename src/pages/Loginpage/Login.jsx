@@ -51,9 +51,9 @@ const Login = () => {
           email: result.user?.email,
           name: result.user?.displayName,
         };
-        axiosPublic.post("/api/v1/new-users", userInfo).then((res) => {
-          console.log(res.data);
-        });
+        // axiosPublic.post("/api/v1/new-users", userInfo).then((res) => {
+        //   console.log(res.data);
+        // });
         navigate("/");
         toast.success("Logged In");
       })

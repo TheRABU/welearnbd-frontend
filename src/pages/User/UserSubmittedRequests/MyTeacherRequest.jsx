@@ -16,7 +16,7 @@ const MyTeacherReq = () => {
         const response = await axiosPublic.get(
           `/api/v1/teachers/my-request/${user?.email}`
         );
-        console.log(response.data);
+
         if (response.data.payload.length > 0) {
           setMyRequest(response.data.payload[0]);
         } else {

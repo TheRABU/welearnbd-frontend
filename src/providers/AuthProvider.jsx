@@ -15,6 +15,7 @@ import {
   updatePassword,
   updateProfile,
 } from "firebase/auth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -23,6 +24,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
   /*
     TODO: SETUP Facebook login,
     */
@@ -97,14 +99,30 @@ const AuthProvider = ({ children }) => {
   };
   // observer state to observe user state changing
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        // get token and store client
+        const userInfo = {
+          email: currentUser.email,
+        };
+        const res = await axiosPublic.post(
+          `/api/v1/jwt/generateToken`,
+          userInfo
+        );
+        if (res.data.token) {
+          localStorage.setItem("access-token", res.data.token);
+        }
+      } else {
+        // remove token if stored on the client side (localstorage/client memory)
+        localStorage.removeItem("access-token");
+      }
       setLoading(false);
     });
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
   const authInformation = {
     CreateNewUser,
     signInExisting,
