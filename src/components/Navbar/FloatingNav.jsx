@@ -5,7 +5,7 @@ import { FcGraduationCap } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import UserDropdown from "./UserDropdown";
 import useCart from "../../hooks/useCartHook";
-import useAdmin from "../../hooks/useAdmin";
+
 const FloatingNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();

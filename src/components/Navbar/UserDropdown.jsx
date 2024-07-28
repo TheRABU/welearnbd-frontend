@@ -10,6 +10,7 @@ const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useContext(AuthContext) || {};
   const [cart] = useCart();
+
   const { logOut } = useAuth();
   const handleLogOut = () => {
     logOut()
@@ -18,6 +19,7 @@ const UserDropdown = () => {
       })
       .catch();
   };
+  // console.log("isadmin:", isAdmin);
   return (
     <div className="relative inline-block">
       {/* Dropdown toggle button */}

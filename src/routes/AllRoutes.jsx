@@ -28,6 +28,7 @@ import MyCart from "../pages/User/MyCart/MyCart";
 import MyPaymentHistoryPage from "../pages/User/UserPaymentHistory/MyPaymentHistoryPage";
 import MyPublishedCourse from "../pages/User/MyPublishedCourses/MyPublishedCourse";
 import ShowUsers from "../pages/Admin/ShowAllUsers/ShowUsers";
+import CheckIfAdmin from "../pages/Admin/CheckAdmin/CheckIfAdmin";
 
 /* 
 TODO: make the courseDetails page private
@@ -116,6 +117,10 @@ const AllRoutesFunc = () => {
         {
           path: "/admin/showAllUsers",
           element: <ShowUsers />,
+        },
+        {
+          path: "/checkIsAdmin",
+          element: <CheckIfAdmin />,
         },
       ],
     },
