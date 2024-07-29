@@ -5,11 +5,13 @@ import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import { FaCartArrowDown } from "react-icons/fa";
 import useCart from "../../hooks/useCartHook";
+import useAdmin from "../../hooks/useAdmin";
 
 const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useContext(AuthContext) || {};
   const [cart] = useCart();
+  const [isAdmin] = useAdmin();
 
   const { logOut } = useAuth();
   const handleLogOut = () => {
@@ -45,7 +47,7 @@ const UserDropdown = () => {
       </button>
 
       {/* Dropdown menu */}
-      {isOpen && (
+      {/* {isOpen && (
         <div
           className="absolute -right-30 lg:right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
           onMouseLeave={() => setIsOpen(false)}
@@ -97,7 +99,103 @@ const UserDropdown = () => {
             Sign Out
           </Link>
         </div>
+      )} */}
+
+      {isOpen && isAdmin ? (
+        <div
+          className="absolute -right-30 lg:right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <Link
+            to="/admin/requests"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            Teacher Requests
+          </Link>
+          <Link to="/myCart">
+            <div className="badge badge-secondary">
+              My Cart
+              <FaCartArrowDown className="mr-2" />+ {cart.length}
+            </div>
+          </Link>
+          <Link
+            to="/admin/approved-requests"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            Approved teacher requests
+          </Link>
+          <Link
+            to="/admin/showAllUsers"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            Show all users
+          </Link>
+
+          <hr className="border-gray-200" />
+
+          <Link
+            onClick={handleLogOut}
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            Sign Out
+          </Link>
+        </div>
+      ) : (
+        isOpen && (
+          <div
+            className="absolute -right-30 lg:right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
+            onMouseLeave={() => setIsOpen(false)}
+          >
+            <Link
+              to="/myPublishedCourses"
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              My courses
+            </Link>
+            <Link to="/myCart">
+              <div className="badge badge-secondary">
+                My Cart
+                <FaCartArrowDown className="mr-2" />+ {cart.length}
+              </div>
+            </Link>
+            <Link
+              to="/createCourse"
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              Create Course
+            </Link>
+            <Link
+              to="/myRequest"
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              My teacher request
+            </Link>
+            <Link
+              to="/myPaymentHistory"
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              My purchased courses
+            </Link>
+            <hr className="border-gray-200" />
+            <Link
+              to="/dashboard"
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              Dashboard
+            </Link>
+
+            <hr className="border-gray-200" />
+
+            <Link
+              onClick={handleLogOut}
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              Sign Out
+            </Link>
+          </div>
+        )
       )}
+
       <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
