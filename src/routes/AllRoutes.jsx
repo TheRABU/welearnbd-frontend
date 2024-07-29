@@ -146,19 +146,35 @@ const AllRoutesFunc = () => {
         },
         {
           path: "/myCart",
-          element: <MyCart />,
+          element: (
+            <PrivateRoute>
+              <MyCart />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/makePayment",
-          element: <PaymentPage />,
+          element: (
+            <PrivateRoute>
+              <PaymentPage />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/myPaymentHistory",
-          element: <MyPaymentHistoryPage />,
+          element: (
+            <PrivateRoute>
+              <MyPaymentHistoryPage />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/myPublishedCourses",
-          element: <MyPublishedCourse />,
+          element: (
+            <PrivateRoute>
+              <MyPublishedCourse />
+            </PrivateRoute>
+          ),
         },
       ],
     },

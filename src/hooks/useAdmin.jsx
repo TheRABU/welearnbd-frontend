@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPrivate from "./useAxiosPrivate";
 import useAuth from "./useAuth";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 // const useAdmin = () => {
 //   const { user, loading } = useAuth();
@@ -36,33 +34,20 @@ import axios from "axios";
 // };
 
 const useAdmin = () => {
-  const [isAdmin, setIsAdmin] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const axiosSecure = useAxiosPrivate();
-
-  useEffect(() => {
-    const fetchIsAdmin = async () => {
-      if (!user?.email) return;
-
-      try {
-        const res = await axios.get(
-          `/api/v1/new-users/isUserAdmin/${user.email}`
-        );
-        console.log("Fetched if user is admin:", res.data);
-        setIsAdmin(res.data.admin);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchIsAdmin();
-  }, [user, loading, axiosSecure]);
-
-  return { isAdmin, loading, error };
+  const { data: isAdmin, isPending: isAdminLoading } = useQuery({
+    queryKey: [user?.email, "isAdmin"],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axiosSecure.get(
+        `/api/v1/new-users/isUserAdmin/${user?.email}`
+      );
+      console.log("Response of useAdmin hoook", res.data);
+      return res.data?.admin;
+    },
+  });
+  return [isAdmin, isAdminLoading];
 };
 
 export default useAdmin;

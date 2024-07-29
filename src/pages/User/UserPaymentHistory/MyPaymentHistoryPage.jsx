@@ -2,6 +2,7 @@ import axios from "axios";
 // import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 
 const MyPaymentHistoryPage = () => {
   //   const [history, setHistory] = useState([]);
@@ -23,11 +24,11 @@ const MyPaymentHistoryPage = () => {
   //     };
   //     fetchMyHistories();
   //   }, [user?.email]);
-
+  const axiosSecure = useAxiosPrivate();
   const { data: payments = [] } = useQuery({
     queryKey: ["payments", user?.email],
     queryFn: async () => {
-      const res = await axios.get(
+      const res = await axiosSecure.get(
         `${import.meta.env.VITE_API_URL}/api/v1/payment/my-history/${
           user?.email
         }`
@@ -86,7 +87,7 @@ const MyPaymentHistoryPage = () => {
 
                   <td>{new Date(item.date).toLocaleDateString()}</td>
                   <td>{item.status}</td>
-                  <td>{item.price}</td>
+                  <td>$ {item.price}</td>
                 </tr>
               ))}
             </tbody>

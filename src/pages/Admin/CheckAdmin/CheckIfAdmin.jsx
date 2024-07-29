@@ -1,33 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
+import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
+import useAdmin from "../../../hooks/useAdmin";
 
 const CheckIfAdmin = () => {
-  const [isAdmin, setIsAdmin] = useState(null);
-  const { user } = useAuth();
+  // const [isAdmin, setIsAdmin] = useState(null);
+  // const { user } = useAuth();
+  // const axiosSecure = useAxiosPrivate();
 
-  useEffect(() => {
-    const fetchAdmin = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/v1/new-users/isUserAdmin/${
-            user?.email
-          }`
-        );
-        console.log("response from backend", response.data.payload);
-        setIsAdmin(response.data.payload);
-      } catch (error) {
-        console.log(error.message);
-        throw new error();
-      }
-    };
-    fetchAdmin();
-  }, [user?.email]);
+  const [isAdmin] = useAdmin();
+  console.log("Isadmin called from Checkadmin page", isAdmin);
 
   return (
     <>
       <div className="overflow-x-auto">
-        <h2>I am admin {isAdmin}</h2>
+        <h2>I am admin: {isAdmin ? "Yes" : "No"}</h2>
         <table className="table">
           {/* head */}
           <thead>
