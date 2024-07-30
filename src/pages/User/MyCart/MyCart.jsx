@@ -56,74 +56,80 @@ const MyCart = () => {
           </div>
         </div>
       ) : (
-        <div className="parent-wrapper pt-20">
-          <div className="overflow-x-auto">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Item No.</th>
-                  <th>Course Name</th>
-                  <th>Price</th>
-                  <th>Course Level</th>
-                  <th className="font-semibold">Total Price {totalPrice}</th>
-                  <th>
-                    {totalPrice === 0 ? (
-                      <button
-                        className="btn bg-teal-500 text-black gap-y-6 "
-                        disabled
-                      >
-                        <TfiMoney />
-                        Pay Now
-                      </button>
-                    ) : (
-                      <Link to="/makePayment">
-                        <button className="btn bg-teal-500 text-black gap-y-6">
-                          <TfiMoney />
+        <div className="bg-[#FFFFFF] p-5 lg:p-12">
+          <div className="parent-wrapper pt-20 border-2 rounded-xl p-5 border-neutral-700">
+            <div className="overflow-x-auto">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Item No.</th>
+                    <th>Course Name</th>
+                    <th>Price</th>
+                    <th>Course Level</th>
+                    <th className="font-semibold text-neutral-900">
+                      Total Price {totalPrice}
+                    </th>
+                    <th>
+                      {totalPrice === 0 ? (
+                        <button
+                          className="btn bg-teal-500 text-black gap-y-3"
+                          disabled
+                        >
+                          <TfiMoney className="text-xl" />
                           Pay Now
                         </button>
-                      </Link>
-                    )}
-                  </th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {cart.map((eachItem, idx) => (
-                  <tr key={eachItem._id}>
-                    <td>{idx}</td>
-                    <td>
-                      <div className="flex items-center gap-3">
-                        <div className="avatar">
-                          <div className="mask mask-squircle h-12 w-12">
-                            <img
-                              src={eachItem.courseImage}
-                              alt="Avatar Tailwind CSS Component"
-                            />
+                      ) : (
+                        <Link to="/makePayment">
+                          <button className="btn bg-teal-500 text-black gap-y-2">
+                            <TfiMoney className="text-xl" />
+                            Pay Now
+                          </button>
+                        </Link>
+                      )}
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cart.map((eachItem, idx) => (
+                    <tr key={eachItem._id}>
+                      <td>{idx}</td>
+                      <td>
+                        <div className="flex items-center gap-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle h-12 w-12">
+                              <img
+                                src={eachItem.courseImage}
+                                alt="Avatar Tailwind CSS Component"
+                              />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">
+                              {eachItem.courseName}
+                            </div>
                           </div>
                         </div>
-                        <div>
-                          <div className="font-bold">{eachItem.courseName}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="text-sm font-semibold">
-                      $ {eachItem.price}
-                    </td>
-                    <td>{eachItem.level}</td>
-                    <td className="font-semibold">$ {totalPrice}</td>
-                    <td>
-                      <button
-                        onClick={() => handleDeleteItem(eachItem._id)}
-                        className="btn bg-red-600 text-white gap-y-8"
-                      >
-                        <FaTrashAlt />
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      </td>
+                      <td className="text-sm font-semibold">
+                        $ {eachItem.price}
+                      </td>
+                      <td>{eachItem.level}</td>
+                      <td className="font-semibold">$ {totalPrice}</td>
+                      <td>
+                        <button
+                          onClick={() => handleDeleteItem(eachItem._id)}
+                          className="btn bg-red-600 text-white gap-y-2"
+                        >
+                          <FaTrashAlt />
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}

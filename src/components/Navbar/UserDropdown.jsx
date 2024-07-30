@@ -132,7 +132,31 @@ const UserDropdown = () => {
           </Link>
 
           <hr className="border-gray-200" />
+          <Link
+            to="/myPublishedCourses"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            My courses
+          </Link>
 
+          <Link
+            to="/createCourse"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            Create Course
+          </Link>
+          <Link
+            to="/myRequest"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            My teacher request
+          </Link>
+          <Link
+            to="/myPaymentHistory"
+            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            My purchased courses
+          </Link>
           <Link
             onClick={handleLogOut}
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"

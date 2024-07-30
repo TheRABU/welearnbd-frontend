@@ -52,7 +52,6 @@ const SignUp = () => {
           name: result.user?.displayName,
         };
         axiosPublic.post("/api/v1/new-users", userInfo).then((res) => {
-          console.log(res.data);
           if (res.data.status === 400) {
             toast.error("User already exist Log in.");
             return;
@@ -74,7 +73,7 @@ const SignUp = () => {
     try {
       CreateNewUser(data.email, data.password).then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+
         updateUserProfile(data.name, data?.photo).then(() => {
           const userInfo = {
             name: data.name,
@@ -84,9 +83,7 @@ const SignUp = () => {
           axiosPublic
             .post("/api/v1/new-users", userInfo)
             .then((res) => {
-              console.log("Entire response", res);
               if (res.data) {
-                console.log("User was added to daatabase");
                 reset();
               } else {
                 toast.error(res.data.message);

@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
+
 import { FcHome } from "react-icons/fc";
 import { MdPayment } from "react-icons/md";
 import { FcInfo } from "react-icons/fc";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
+import useTeacher from "../../hooks/useTeacher";
 const LeftSideUserBar = () => {
   const { user, logOut } = useAuth();
+  const [isTeacher] = useTeacher();
 
   const handleLogOut = () => {
     logOut()
@@ -37,35 +39,36 @@ const LeftSideUserBar = () => {
               <FcHome className="text-xl" />
               Home
             </Link>
-
-            <Link
-              className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
-              to="/createCourse"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-5 h-5"
+            {isTeacher && (
+              <Link
+                className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
+                to="/createCourse"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
-                />
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
+                  />
+                </svg>
 
-              <span className="mx-2 text-sm font-medium">
-                Create new Course
-              </span>
-            </Link>
+                <span className="mx-2 text-sm font-medium">
+                  Create new Course
+                </span>
+              </Link>
+            )}
             <Link
               className="flex items-center justify-start gap-x-3 ml-3"
               to="/myPaymentHistory"
@@ -135,7 +138,7 @@ const LeftSideUserBar = () => {
                   </span>
                 ) : (
                   <span className="text-sm font-medium text-gray-700 ">
-                    Rabu is only admin
+                    Login to see your name
                   </span>
                 )}
               </a>

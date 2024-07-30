@@ -5,6 +5,7 @@ import useCart from "../../hooks/useCartHook";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -14,27 +15,42 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState("");
   const [cart, refetch] = useCart();
   const { user } = useAuth();
+  const axiosSecure = useAxiosPrivate();
 
   const navigate = useNavigate();
 
   // create total price
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
+  // useEffect(() => {
+  //   const sendDataToBackend = async () => {
+  //     try {
+  //       const res = await axiosSecure.post(`/api/v1/payment/create-intent`, {
+  //         price: totalPrice,
+  //       });
+
+  //       console.log("Client secret", res.data.clientSecret);
+  //       setClientSecret(res.data.clientSecret);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //       throw new error();
+  //     }
+  //   };
+  //   sendDataToBackend();
+  // }, [axiosSecure, totalPrice]);
+
   useEffect(() => {
-    const sendDataToBackend = async () => {
-      try {
-        const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/v1/payment/create-intent`,
-          { price: totalPrice }
-        );
-        setClientSecret(res.data.clientSecret);
-      } catch (error) {
-        console.log(error.message);
-        throw new error();
-      }
-    };
-    sendDataToBackend();
-  }, [totalPrice]);
+    if (totalPrice > 0) {
+      axiosSecure
+        .post(`/api/v1/payment/create-intent`, {
+          price: totalPrice,
+        })
+        .then((res) => {
+          // console.log(res.data.clientSecret);
+          setClientSecret(res.data.clientSecret);
+        });
+    }
+  }, [axiosSecure, totalPrice]);
 
   // submit handler
   const handleSubmit = async (event) => {
@@ -43,7 +59,7 @@ const CheckoutForm = () => {
       return;
     }
     const card = elements.getElement(CardElement);
-    if (card == null) {
+    if (card === null) {
       return;
     }
     // Use your card Element with other Stripe.js APIs
@@ -56,7 +72,7 @@ const CheckoutForm = () => {
       console.log("[error]", error);
       setError(error.message);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      // console.log("[PaymentMethod]", paymentMethod);
       setError("");
     }
 
@@ -84,10 +100,10 @@ const CheckoutForm = () => {
           date: new Date(),
           cartIds: cart.map((item) => item._id),
           cartItemIds: cart.map((item) => item.cartItemId),
-          status: "pending",
+          status: "complete",
         };
-        const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/v1/payment/save-payment`,
+        const res = await axiosSecure.post(
+          `/api/v1/payment/save-payment`,
           payment
         );
         refetch();

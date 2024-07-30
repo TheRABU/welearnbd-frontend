@@ -112,12 +112,13 @@ const AuthProvider = ({ children }) => {
         );
         if (res.data.token) {
           localStorage.setItem("access-token", res.data.token);
+          setLoading(false);
         }
       } else {
         // remove token if stored on the client side (localstorage/client memory)
         localStorage.removeItem("access-token");
+        setLoading(false);
       }
-      setLoading(false);
     });
     return () => {
       return unsubscribe();

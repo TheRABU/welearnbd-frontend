@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 
 const CreateNewCourse = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosPrivate();
   const [categories, setCategories] = useState([]);
   const imgBBapikey = import.meta.env.VITE_IMGBB_API_KEY;
   const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imgBBapikey}`;
@@ -55,10 +57,7 @@ const CreateNewCourse = () => {
         price,
         level,
       };
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/v1/courses`,
-        newCourse
-      );
+      const response = await axiosSecure.post(`/api/v1/courses`, newCourse);
       if (response.data.payload) {
         toast.success("Course created successfully");
         form.reset();

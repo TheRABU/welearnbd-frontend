@@ -2,25 +2,28 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { axiosPublic } from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 
 const ApproveReq = () => {
   const [requests, setRequests] = useState([]);
+  const axiosSecure = useAxiosPrivate();
   useEffect(() => {
     const getRequests = async () => {
       try {
-        const res = await axiosPublic.get("/api/v1/teachers/requests");
-        const filterByStatus = res.data.payload.filter(
-          (item) => item.status === "pending"
-        );
-
-        setRequests(filterByStatus);
+        const res = await axiosSecure.get("/api/v1/teachers/requests");
+        if (res.data.payload) {
+          const filterByStatus = res.data.payload.filter(
+            (item) => item.status === "pending"
+          );
+          setRequests(filterByStatus);
+        }
       } catch (error) {
         console.log(error.message);
         throw new error();
       }
     };
     getRequests();
-  }, []);
+  }, [axiosSecure]);
 
   const approveRequest = async (requestId) => {
     try {
@@ -102,7 +105,7 @@ const ApproveReq = () => {
                           className="btn btn-primary"
                           onClick={() => approveRequest(item._id)}
                         >
-                          <span className="text-white">Approve</span>
+                          <span className="text-white">Approve Now</span>
                         </button>
                       )}
                     </div>

@@ -4,10 +4,12 @@ import Accordian from "./Accordian";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const Coursedetails = () => {
   const [details] = useFetchSingleCourse();
   const { user } = useAuth();
+  const axiosSecure = useAxiosPrivate();
 
   const handleAddToCart = async (details) => {
     if (user && user.email) {
@@ -21,10 +23,7 @@ const Coursedetails = () => {
         courseImage: details.courseImage,
       };
       try {
-        const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/v1/cart`,
-          cartItem
-        );
+        const res = await axiosSecure.post(`/api/v1/cart`, cartItem);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -71,16 +70,16 @@ const Coursedetails = () => {
               Level of difficulty: {details.level}
             </p>
             <p className="text-xl">$ {details.price}</p>
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <Link to={`/enroll/${details._id}`}>
                 <button className="btn btn-secondary">Enroll Now</button>
               </Link>
-            </div>
+            </div> */}
             <div className="mt-5">
               <Link>
                 <button
                   onClick={() => handleAddToCart(details)}
-                  className="btn bg-orange-500 border-b-8 border-b-black"
+                  className="btn bg-orange-500 border-b-8 px-6 border-b-black"
                 >
                   Add to cart
                 </button>

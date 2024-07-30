@@ -43,7 +43,7 @@ const useAdmin = () => {
       const res = await axiosSecure.get(
         `/api/v1/new-users/isUserAdmin/${user?.email}`
       );
-      console.log("Response of useAdmin hoook", res.data);
+
       return res.data?.admin;
     },
   });

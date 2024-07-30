@@ -18,7 +18,6 @@ const ShowUsers = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/api/v1/new-users/getAll");
-      console.log("response from axios secure api call", res.data);
       return res.data.payload;
     },
   });

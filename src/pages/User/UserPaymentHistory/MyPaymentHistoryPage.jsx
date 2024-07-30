@@ -41,38 +41,39 @@ const MyPaymentHistoryPage = () => {
     <>
       <div className="pt-20">
         {payments.length > 0 ? (
-          <h2 className="text-center text-3xl ">
+          <h2 className="text-center text-3xl ml-3">
             My Payment history
             <div className="badge badge-accent badge-outline badge-lg">
               {payments.length}
             </div>
           </h2>
         ) : (
-          <h2 className="text-center text-3xl ">My Payment history</h2>
+          <h2 className="text-center text-3xl mb-6">My Payment history</h2>
         )}
-        <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Serial No.</th>
-                <th>Course Name</th>
-                <th>Transaction Id</th>
-                <th>Purchased At</th>
-                <th>Status</th>
-                <th>Price</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* row 1 */}
-              {payments.map((item, idx) => (
-                <tr key={item._id}>
-                  <th>{idx + 1}</th>
-                  <td>{item.courseName}</td>
-                  <td>
-                    <div className="flex items-center gap-3">
-                      {/* <div className="avatar">
+        <div className="bg-[#FFFFFF]  p-5 mt-10">
+          <div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Serial No.</th>
+                  <th>Course Name</th>
+                  <th>Transaction Id</th>
+                  <th>Purchased At</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* row 1 */}
+                {payments.map((item, idx) => (
+                  <tr key={item._id}>
+                    <th>{idx + 1}</th>
+                    <td>{item.courseName}</td>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        {/* <div className="avatar">
                           <div className="mask mask-squircle h-12 w-12">
                             <img
                               src="https://img.daisyui.com/images/profile/demo/2@94.webp"
@@ -81,17 +82,18 @@ const MyPaymentHistoryPage = () => {
                           </div>
                         </div> */}
 
-                      <div className="font-bold">{item.transactionId}</div>
-                    </div>
-                  </td>
+                        <div className="font-bold">{item.transactionId}</div>
+                      </div>
+                    </td>
 
-                  <td>{new Date(item.date).toLocaleDateString()}</td>
-                  <td>{item.status}</td>
-                  <td>$ {item.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    <td>{new Date(item.date).toLocaleDateString()}</td>
+                    <td>{item.status}</td>
+                    <td>$ {item.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </>

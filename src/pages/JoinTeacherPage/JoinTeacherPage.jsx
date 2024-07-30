@@ -36,12 +36,14 @@ const JoinTeacherPage = () => {
       "/api/v1/teachers/requests",
       newRequest
     );
-    console.log(response.data);
-    Swal.fire({
-      title: "Sent request!",
-      text: "You request to become a teacher is submitted wait for reply from admin",
-      icon: "success",
-    });
+    if (response.data.payload) {
+      Swal.fire({
+        title: "Sent request!",
+        text: "You request to become a teacher is submitted wait for reply from admin",
+        icon: "success",
+      });
+    }
+
     form.reset();
   };
 
