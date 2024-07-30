@@ -202,9 +202,8 @@ const Footer = () => {
           <div className="mt-16 border-t border-gray-400/30 pt-8 sm:mt-20 lg:mt-24">
             <div className="text-md text-center text-white">
               Copyright © 2024 . Crafted with
-              <span className="text-gray-50">♥</span> by AI enthusiasts at
-              <a rel="noopener" href="/">
-                AIOps.
+              <a target="_blank" href="https://www.linkedin.com/in/therabbi/">
+                <span className="text-gray-50">♥</span> by TheRabu
               </a>
             </div>
           </div>

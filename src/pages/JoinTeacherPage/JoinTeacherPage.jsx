@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth.js";
 import axios from "axios";
 import { axiosPublic } from "../../hooks/useAxiosPublic.jsx";
+import { Link } from "react-router-dom";
 const JoinTeacherPage = () => {
   const [categories, setCategories] = useState([]);
   const { user } = useAuth();
@@ -168,115 +169,115 @@ const JoinTeacherPage = () => {
           </div>
         </div>
       </div>
-      {/* Joining FORM  */}
-      <div className="wrapper-form h-screen mt-8 ">
-        <div className="bg-white border-4 rounded-lg shadow relative m-10">
-          <div className="p-6 my-12 space-y-6">
-            <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-6 gap-6">
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="product-name"
-                    className="text-sm font-medium text-gray-900 block mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="user-name"
-                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-                    placeholder="Your Name"
-                    defaultValue={user?.displayName}
-                    disabled={true}
-                  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="user-email"
-                    className="text-sm font-medium text-gray-900 block mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-                    placeholder="Your email"
-                    defaultValue={user?.email}
-                    disabled={true}
-                  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="category"
-                    className="text-sm font-medium text-gray-900 block mb-2"
-                  >
-                    Category
-                  </label>
-                  <select
-                    className="select select-info w-full max-w-xs"
-                    id="category"
-                    name="category"
-                    required={true}
-                  >
-                    <option value="" selected>
-                      Select Category
-                    </option>
-                    {categories.map((category, idx) => (
-                      <option value={category} key={idx}>
-                        {category}
+      {user ? (
+        <div className="wrapper-form h-screen mt-8 ">
+          <div className="bg-white border-4 rounded-lg shadow relative m-10">
+            <div className="p-6 my-12 space-y-6">
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-6 gap-6">
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="product-name"
+                      className="text-sm font-medium text-gray-900 block mb-2"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="user-name"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                      placeholder="Your Name"
+                      defaultValue={user?.displayName}
+                      disabled={true}
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="user-email"
+                      className="text-sm font-medium text-gray-900 block mb-2"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="text"
+                      name="email"
+                      id="email"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                      placeholder="Your email"
+                      defaultValue={user?.email}
+                      disabled={true}
+                    />
+                  </div>
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="category"
+                      className="text-sm font-medium text-gray-900 block mb-2"
+                    >
+                      Category
+                    </label>
+                    <select
+                      className="select select-info w-full max-w-xs"
+                      id="category"
+                      name="category"
+                      required={true}
+                    >
+                      <option value="" selected>
+                        Select Category
                       </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="brand"
-                    className="text-lg font-medium text-gray-900 block mb-2"
-                  >
-                    Chose your experience level
-                  </label>
-                  <div className="form-control">
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Experienced</span>
-                      <input
-                        required={true}
-                        type="radio"
-                        name="experience"
-                        value="expert"
-                        className="radio checked:bg-red-500"
-                        defaultChecked
-                      />
-                    </label>
+                      {categories.map((category, idx) => (
+                        <option value={category} key={idx}>
+                          {category}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                  <div className="form-control">
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Mid Level</span>
-                      <input
-                        type="radio"
-                        name="experience"
-                        value="mid"
-                        className="radio checked:bg-blue-500"
-                        defaultChecked
-                      />
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="brand"
+                      className="text-lg font-medium text-gray-900 block mb-2"
+                    >
+                      Chose your experience level
                     </label>
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text">Experienced</span>
+                        <input
+                          required={true}
+                          type="radio"
+                          name="experience"
+                          value="expert"
+                          className="radio checked:bg-red-500"
+                          defaultChecked
+                        />
+                      </label>
+                    </div>
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text">Mid Level</span>
+                        <input
+                          type="radio"
+                          name="experience"
+                          value="mid"
+                          className="radio checked:bg-blue-500"
+                          defaultChecked
+                        />
+                      </label>
+                    </div>
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text">Beginner</span>
+                        <input
+                          type="radio"
+                          name="experience"
+                          value="beginner"
+                          className="radio checked:bg-teal-500"
+                          defaultChecked
+                        />
+                      </label>
+                    </div>
                   </div>
-                  <div className="form-control">
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Beginner</span>
-                      <input
-                        type="radio"
-                        name="experience"
-                        value="beginner"
-                        className="radio checked:bg-teal-500"
-                        defaultChecked
-                      />
-                    </label>
-                  </div>
-                </div>
-                {/* <div className="col-span-6 sm:col-span-3">
+                  {/* <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="price"
                     className="text-sm font-medium text-gray-900 block mb-2"
@@ -292,7 +293,7 @@ const JoinTeacherPage = () => {
                     required=""
                   />
                 </div> */}
-                {/* <div className="col-span-full">
+                  {/* <div className="col-span-full">
                   <label
                     htmlFor="product-details"
                     className="text-sm font-medium text-gray-900 block mb-2"
@@ -306,19 +307,41 @@ const JoinTeacherPage = () => {
                     placeholder="Details"
                   ></textarea>
                 </div> */}
-              </div>
-              <div className="p-6 border-t border-gray-200 rounded-b">
-                <button
-                  className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+                </div>
+                <div className="p-6 border-t border-gray-200 rounded-b">
+                  <button
+                    className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="min-h-max">
+          <h2 className="text-5xl font-bold text-center text-neutral-600">
+            Please Sign Up / Login{" "}
+          </h2>
+          <p className="text-2xl text-neutral-700 text-center">
+            To make a request you need to register with WelearnBD first.
+            <Link to="/signUp">
+              <span className="text-blue-600 ">Click Here </span>
+            </Link>
+          </p>
+          <div className="">
+            <img
+              className="object-cover w-full h-full"
+              src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7885.jpg?t=st=1722360706~exp=1722364306~hmac=9ec64285698b428a27ea4477f379d9c75aa29d046a641b54a0c5d9c18567e766&w=740"
+              alt=""
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Joining FORM  */}
     </>
   );
 };
