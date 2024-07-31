@@ -109,7 +109,7 @@ const UserDropdown = () => {
         >
           <Link
             to="/admin/requests"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             Teacher Requests
           </Link>
@@ -121,13 +121,13 @@ const UserDropdown = () => {
           </Link>
           <Link
             to="/admin/approved-requests"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             Approved teacher requests
           </Link>
           <Link
             to="/admin/showAllUsers"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             Show all users
           </Link>
@@ -135,7 +135,7 @@ const UserDropdown = () => {
           <hr className="border-gray-200" />
           <Link
             to="/myPublishedCourses"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             My courses
           </Link>
@@ -143,26 +143,26 @@ const UserDropdown = () => {
           {isTeacher && (
             <Link
               to="/createCourse"
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               Create Course
             </Link>
           )}
           <Link
             to="/myRequest"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             My teacher request
           </Link>
           <Link
             to="/myPaymentHistory"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             My purchased courses
           </Link>
           <Link
             onClick={handleLogOut}
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
             Sign Out
           </Link>
@@ -187,35 +187,35 @@ const UserDropdown = () => {
             </Link>
             <Link
               to="/createCourse"
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               Create Course
             </Link>
             <Link
               to="/myRequest"
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               My teacher request
             </Link>
             <Link
               to="/myPaymentHistory"
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               My purchased courses
             </Link>
             <hr className="border-gray-200" />
-            <Link
+            {/* <Link
               to="/dashboard"
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               Dashboard
             </Link>
 
-            <hr className="border-gray-200" />
+            <hr className="border-gray-200" /> */}
 
             <Link
               onClick={handleLogOut}
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               Sign Out
             </Link>
