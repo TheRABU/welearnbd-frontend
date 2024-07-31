@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import { BsCart3 } from "react-icons/bs";
 
 const Coursedetails = () => {
   const [details] = useFetchSingleCourse();
@@ -57,7 +58,7 @@ const Coursedetails = () => {
           </h2>
         </div>
 
-        <article className="sm:flex-row lg:flex justify-around items-start my-3 py-5 border-2 border-neutral-600 rounded-lg">
+        <article className="sm:flex-row lg:flex justify-around items-start my-3 py-5 border-2 border-neutral-600 rounded-lg m-5">
           {/* COURSE INFO */}
           <div className="text-contents px-10 py-10 w-full lg:w-5/12 shrink-0">
             <h2 className="text-5xl text-neutral-700 font-semibold">
@@ -75,14 +76,18 @@ const Coursedetails = () => {
                 <button className="btn btn-secondary">Enroll Now</button>
               </Link>
             </div> */}
-            <div className="mt-5">
-              <Link>
-                <button
-                  onClick={() => handleAddToCart(details)}
-                  className="btn bg-orange-500 border-b-8 px-6 border-b-black"
-                >
-                  Add to cart
-                </button>
+
+            <div className="mt-2">
+              <Link
+                onClick={() => handleAddToCart(details)}
+                className="box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none"
+              >
+                <span className="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+                <span className="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+                <span className="relative z-20 flex items-center text-sm">
+                  <BsCart3 className="text-2xl mr-2" />
+                  Add to Cart
+                </span>
               </Link>
             </div>
           </div>
@@ -95,12 +100,12 @@ const Coursedetails = () => {
             />
           </div>
         </article>
-        <aside className="px-6">
+        <aside className="px-6 mb-6">
           {/* COURSE SYLLABUS */}
           <p className="text-xl from-neutral-400 font-semibold">
             Course contents
           </p>
-          <div className="">
+          <div className="border-2 border-neutral-600 rounded-xl p-3">
             {details.courseSyllabus?.map((item, idx) => (
               <Accordian key={idx} eachCourseSyllabus={item} />
             ))}

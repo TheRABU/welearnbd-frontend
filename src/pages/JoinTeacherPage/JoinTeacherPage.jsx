@@ -170,7 +170,7 @@ const JoinTeacherPage = () => {
         </div>
       </div>
       {user ? (
-        <div className="wrapper-form h-screen mt-8 ">
+        <div className="wrapper-form h-full lg:h-screen mt-8 ">
           <div className="bg-white border-4 rounded-lg shadow relative m-10">
             <div className="p-6 my-12 space-y-6">
               <form onSubmit={handleSubmit}>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
-import { axiosPublic } from "../../../hooks/useAxiosPublic";
+
 import toast from "react-hot-toast";
 import { FcApproval } from "react-icons/fc";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyTeacherReq = () => {
   const [myRequest, setMyRequest] = useState(null);
@@ -23,6 +24,15 @@ const MyTeacherReq = () => {
         if (response.data.payload.length > 0) {
           setMyRequest(response.data.payload[0]);
         } else {
+          Swal.fire({
+            title: "No request found!",
+            text: "No teacher request was made from your account. Login and apply for a teacher request",
+            imageUrl:
+              "https://img.freepik.com/free-vector/404-error-page-found_24908-59517.jpg?t=st=1722425432~exp=1722429032~hmac=32c4fa3611064ba88a4242ed25133b52efc69ab2fe8903e0d450d29deb33cef1&w=740",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image",
+          });
           setMyRequest(null);
         }
       } catch (error) {
@@ -73,13 +83,15 @@ const MyTeacherReq = () => {
           </div>
         ) : (
           <>
-            <p>
-              No request found from your Email try applying for becoming a
-              teacher first!...{" "}
-              <Link to="/joinTeacher">
-                <span>Click Here</span>
-              </Link>
-            </p>
+            <div className="border-2 border-neutral-700 rounded-xl p-6">
+              <p className="text-lg text-neutral-500">
+                No request found from your Email try applying for becoming a
+                teacher first!...{" "}
+                <Link to="/joinTeacher">
+                  <span className="text-blue-600">Click Here</span>
+                </Link>
+              </p>
+            </div>
           </>
         )}
       </div>

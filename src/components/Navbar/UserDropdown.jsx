@@ -117,7 +117,7 @@ const UserDropdown = () => {
             className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3"
             to="/myCart"
           >
-            <div className="badge badge-secondary">
+            <div className="badge badge-secondary w-full py-3">
               My Cart
               <FaCartArrowDown className="mr-2" />+ {cart.length}
             </div>

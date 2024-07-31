@@ -72,7 +72,7 @@ const FloatingNav = () => {
             </div>
             {/* MOBILE NAVBAR */}
             {isOpen ? (
-              <div className="flex flex-col items-center absolute top-12 z-[10] my-5 p-2 mx-auto h-auto w-56 rounded-md bg-neutral-800">
+              <div className="flex flex-col items-center absolute top-12 z-[10] my-5 p-2 mx-auto h-auto w-56 rounded-md bg-neutral-400">
                 <div className="flex flex-col py-3 w-full">
                   <Link
                     to="/"
@@ -105,7 +105,7 @@ const FloatingNav = () => {
                     Login
                   </Link>
                   <Link className="mt-2" to="/myCart">
-                    <div className="badge badge-secondary">
+                    <div className="badge badge-secondary w-full">
                       <FaCartArrowDown className="mr-2" />+ {cart.length}
                     </div>
                   </Link>
