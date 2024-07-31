@@ -11,11 +11,12 @@ import { FcManager } from "react-icons/fc";
 import { FcAutomatic } from "react-icons/fc";
 import { FaCodePullRequest } from "react-icons/fa6";
 import useAdmin from "../../hooks/useAdmin";
+import useTeacher from "../../hooks/useTeacher";
 const MobileLeftSideBar = () => {
   const { user, logOut } = useAuth();
 
   const [isAdmin] = useAdmin();
-
+  const [isTeacher] = useTeacher();
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -25,7 +26,7 @@ const MobileLeftSideBar = () => {
   };
   return (
     <>
-      <aside className="flex flex-col items-center w-24 h-screen py-8 overflow-y-auto bg-white border-r rtl:border-l rtl:border-r-0 ">
+      <aside className="flex flex-col items-center w-20 h-screen py-8 overflow-y-auto bg-white border-r rtl:border-l rtl:border-r-0 ">
         <nav className="flex flex-col flex-1 space-y-6">
           <Link to="/">
             <img
@@ -41,11 +42,13 @@ const MobileLeftSideBar = () => {
             </Link>
           </div>
 
-          <div data-tip="Create Course" className="tooltip">
-            <Link to="/createCourse">
-              <FcInspection className="text-4xl p-1.5 text-gray-700 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-100" />
-            </Link>
-          </div>
+          {isTeacher && (
+            <div data-tip="Create Course" className="tooltip">
+              <Link to="/createCourse">
+                <FcInspection className="text-4xl p-1.5 text-gray-700 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-100" />
+              </Link>
+            </div>
+          )}
           <div data-tip="Payment History" className="tooltip">
             <Link to="/myPaymentHistory">
               <MdPayment className="text-4xl p-1.5 text-gray-700 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-100" />

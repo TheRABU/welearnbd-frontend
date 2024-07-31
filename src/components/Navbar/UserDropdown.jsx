@@ -6,13 +6,14 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaCartArrowDown } from "react-icons/fa";
 import useCart from "../../hooks/useCartHook";
 import useAdmin from "../../hooks/useAdmin";
+import useTeacher from "../../hooks/useTeacher";
 
 const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useContext(AuthContext) || {};
   const [cart] = useCart();
   const [isAdmin] = useAdmin();
-
+  const [isTeacher] = useTeacher();
   const { logOut } = useAuth();
   const handleLogOut = () => {
     logOut()
@@ -103,7 +104,7 @@ const UserDropdown = () => {
 
       {isOpen && isAdmin ? (
         <div
-          className="absolute -right-30 lg:right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
+          className="absolute right-1 lg:right-0 z-20 w-48 py-2 mt-2 p-3 origin-top-right bg-[#FFFFFF] rounded-md shadow-xl"
           onMouseLeave={() => setIsOpen(false)}
         >
           <Link
@@ -139,12 +140,14 @@ const UserDropdown = () => {
             My courses
           </Link>
 
-          <Link
-            to="/createCourse"
-            className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
-          >
-            Create Course
-          </Link>
+          {isTeacher && (
+            <Link
+              to="/createCourse"
+              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            >
+              Create Course
+            </Link>
+          )}
           <Link
             to="/myRequest"
             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
@@ -167,12 +170,12 @@ const UserDropdown = () => {
       ) : (
         isOpen && (
           <div
-            className="absolute -right-30 lg:right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
+            className="absolute right-1 lg:right-0 z-20 w-48 py-2 mt-2 p-3 origin-top-right bg-[#FFFFFF] rounded-md shadow-xl"
             onMouseLeave={() => setIsOpen(false)}
           >
             <Link
               to="/myPublishedCourses"
-              className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              className="block border-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
             >
               My courses
             </Link>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa6";
-import { FcGraduationCap } from "react-icons/fc";
+
 import useAuth from "../../hooks/useAuth";
 import UserDropdown from "./UserDropdown";
 import useCart from "../../hooks/useCartHook";
@@ -70,12 +70,13 @@ const FloatingNav = () => {
                 )}
               </button>
             </div>
+            {/* MOBILE NAVBAR */}
             {isOpen ? (
-              <div className="flex flex-col items-center absolute top-12 z-[10] my-5 p-2 mx-auto h-auto w-56 rounded-md bg-[#260C1A]">
+              <div className="flex flex-col items-center absolute top-12 z-[10] my-5 p-2 mx-auto h-auto w-56 rounded-md bg-neutral-800">
                 <div className="flex flex-col py-3 w-full">
                   <Link
                     to="/"
-                    className="bg-[#FEFAF6] text-black mt-2 px-5 py-2 rounded-lg"
+                    className="bg-white text-black mt-2 px-5 py-2 rounded-lg"
                   >
                     Home
                   </Link>
@@ -103,7 +104,7 @@ const FloatingNav = () => {
                   >
                     Login
                   </Link>
-                  <Link to="/myCart">
+                  <Link className="mt-2" to="/myCart">
                     <div className="badge badge-secondary">
                       <FaCartArrowDown className="mr-2" />+ {cart.length}
                     </div>
