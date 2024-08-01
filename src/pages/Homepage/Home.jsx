@@ -68,8 +68,8 @@ const Home = () => {
         <FAQsection />
       </div>
       {/* Testimonial/ Clients review */}
-      <div className="my-10">
-        <div>
+      <div className="my-10 m-10">
+        <div className="mb-4">
           <h2 className="text-4xl text-sky-500 font-bold text-center">
             What our Clients say
           </h2>

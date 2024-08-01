@@ -104,7 +104,7 @@ const UserDropdown = () => {
 
       {isOpen && isAdmin ? (
         <div
-          className="absolute right-1 lg:right-0 z-20 w-48 py-2 mt-2 p-3 origin-top-right bg-[#FFFFFF] rounded-md shadow-xl"
+          className="absolute right-1 lg:right-0 z-30 w-48 py-2 mt-2 p-3 origin-top-right bg-[#FFFFFF] rounded-md shadow-xl max-h-64 overflow-y-auto"
           onMouseLeave={() => setIsOpen(false)}
         >
           <Link
@@ -113,15 +113,7 @@ const UserDropdown = () => {
           >
             Teacher Requests
           </Link>
-          <Link
-            className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3"
-            to="/myCart"
-          >
-            <div className="badge badge-secondary w-full py-3">
-              My Cart
-              <FaCartArrowDown className="mr-2" />+ {cart.length}
-            </div>
-          </Link>
+
           <Link
             to="/admin/approved-requests"
             className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
@@ -142,6 +134,16 @@ const UserDropdown = () => {
           >
             My courses
           </Link>
+          <Link
+            className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+            to="/myCart"
+          >
+            <div className="badge badge-secondary">
+              My Cart
+              <FaCartArrowDown className="mr-2" />+ {cart.length}
+            </div>
+          </Link>
+          <hr />
 
           {isTeacher && (
             <Link
@@ -169,11 +171,12 @@ const UserDropdown = () => {
           >
             Sign Out
           </Link>
+          <hr />
         </div>
       ) : (
         isOpen && (
           <div
-            className="absolute right-1 lg:right-0 z-20 w-48 py-2 mt-2 p-3 origin-top-right bg-[#FFFFFF] rounded-md shadow-xl"
+            className="absolute right-1 lg:right-0 z-20 w-48 py-2 mt-2 p-3 origin-top-right bg-[#FFFFFF] rounded-md shadow-xl max-h-64 overflow-y-auto"
             onMouseLeave={() => setIsOpen(false)}
           >
             <Link
@@ -182,7 +185,10 @@ const UserDropdown = () => {
             >
               My courses
             </Link>
-            <Link to="/myCart">
+            <Link
+              className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+              to="/myCart"
+            >
               <div className="badge badge-secondary">
                 My Cart
                 <FaCartArrowDown className="mr-2" />+ {cart.length}

@@ -50,7 +50,7 @@ const MyTeacherReq = () => {
         </h2>
       </div>
 
-      <div className=" mx-8 lg:mx-28 py-10 h-full">
+      <div className=" mx-8 lg:mx-28 py-10 h-screen">
         {myRequest ? (
           <div className="overflow-x-auto">
             <table className="table table-zebra">

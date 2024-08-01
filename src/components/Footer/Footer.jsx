@@ -59,29 +59,14 @@ const Footer = () => {
                     Our Solutions
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
-                    <li>
-                      <a
-                        href="/aiplatform"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        AI Platform
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      AI Platform
                     </li>
-                    <li>
-                      <a
-                        href="/aialgorithms"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        AI Algorithms
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      AI Algorithms
                     </li>
-                    <li>
-                      <a
-                        href="/industryapplications"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Industry Applications
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Industry Applications
                     </li>
                   </ul>
                 </div>
@@ -90,29 +75,14 @@ const Footer = () => {
                     Use Cases
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
-                    <li>
-                      <a
-                        href="/predictiveanalysis"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Predictive Analysis
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Predictive Analysis
                     </li>
-                    <li>
-                      <a
-                        href="/customerexperience"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Customer Experience
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Customer Experience
                     </li>
-                    <li>
-                      <a
-                        href="/automation"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Automation
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Automation
                     </li>
                   </ul>
                 </div>
@@ -123,45 +93,20 @@ const Footer = () => {
                     Resources
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
-                    <li>
-                      <a
-                        href="/pricing"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Pricing
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Pricing
                     </li>
-                    <li>
-                      <a
-                        href="/blog"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Blog
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Blog
                     </li>
-                    <li>
-                      <a
-                        href="/casestudies"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Case Studies
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Case Studies
                     </li>
-                    <li>
-                      <a
-                        href="/terms"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Terms of Service
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Terms of Service
                     </li>
-                    <li>
-                      <a
-                        href="/privacy"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Privacy Policy
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Privacy Policy
                     </li>
                   </ul>
                 </div>
@@ -170,29 +115,14 @@ const Footer = () => {
                     Company
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
-                    <li>
-                      <a
-                        href="/aboutus"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        About Us
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      About Us
                     </li>
-                    <li>
-                      <a
-                        href="/careers"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Careers
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Careers
                     </li>
-                    <li>
-                      <a
-                        href="/contactus"
-                        className="text-md leading-6 text-gray-300 hover:text-gray-50"
-                      >
-                        Contact Us
-                      </a>
+                    <li className="text-md leading-6 text-gray-300 hover:text-gray-50">
+                      Contact Us
                     </li>
                   </ul>
                 </div>

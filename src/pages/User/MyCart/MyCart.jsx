@@ -57,7 +57,7 @@ const MyCart = () => {
         </div>
       ) : (
         <div className="bg-[#FFFFFF] p-5 lg:p-12">
-          <div className="parent-wrapper pt-20 border-2 rounded-xl p-5 border-neutral-700">
+          <div className="parent-wrapper h-screen pt-20 border-2 rounded-xl p-5 border-neutral-700">
             <div className="overflow-x-auto">
               <table className="table">
                 <thead>

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { axiosPublic } from "../../../hooks/useAxiosPublic";
+import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 
 const ApprovedReq = () => {
+  const axiosSecure = useAxiosPrivate();
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     const getRequests = async () => {
       try {
-        const res = await axiosPublic.get("/api/v1/teachers/requests");
+        const res = await axiosSecure.get("/api/v1/teachers/requests");
         const filterByStatus = res.data.payload.filter(
           (item) => item.status === "approved"
         );
