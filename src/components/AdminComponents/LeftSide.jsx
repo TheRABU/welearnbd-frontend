@@ -46,9 +46,9 @@ const LeftSideBar = () => {
               <span className="mx-2 text-sm font-medium">Home</span>
             </Link>
 
-            <a
+            <Link
               className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg    hover:bg-gray-100   hover:text-gray-700"
-              href="#"
+              to="/admin/dashboard"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const LeftSideBar = () => {
               </svg>
 
               <span className="mx-2 text-sm font-medium">Dashboard</span>
-            </a>
+            </Link>
 
             <Link
               className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"

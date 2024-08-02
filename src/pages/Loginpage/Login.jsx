@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
-import { axiosPublic } from "../../hooks/useAxiosPublic";
+
 const Login = () => {
   const [showPass, setShowPass] = useState(true);
   const { signInExisting, signInWithGoogle } = useAuth();

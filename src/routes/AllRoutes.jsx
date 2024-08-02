@@ -29,6 +29,8 @@ import MyPaymentHistoryPage from "../pages/User/UserPaymentHistory/MyPaymentHist
 import MyPublishedCourse from "../pages/User/MyPublishedCourses/MyPublishedCourse";
 import ShowUsers from "../pages/Admin/ShowAllUsers/ShowUsers";
 import CheckIfAdmin from "../pages/Admin/CheckAdmin/CheckIfAdmin";
+import AdminDashBrd from "../pages/Admin/AdminDashboard/AdminDash";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 /* 
 TODO: make the courseDetails page private
@@ -121,6 +123,16 @@ const AllRoutesFunc = () => {
         {
           path: "/checkIsAdmin",
           element: <CheckIfAdmin />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: "/admin/dashboard",
+          element: <AdminDashBrd />,
         },
       ],
     },

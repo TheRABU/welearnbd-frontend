@@ -108,6 +108,12 @@ const UserDropdown = () => {
           onMouseLeave={() => setIsOpen(false)}
         >
           <Link
+            to="/admin/dashboard"
+            className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
+          >
+            Admin dashboard
+          </Link>
+          <Link
             to="/admin/requests"
             className="block border-2 mt-2 border-neutral-400 rounded-xl px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100"
           >
