@@ -67,9 +67,9 @@ const AdminDashBrd = () => {
               </div>
             </div>
 
-            <div className="flex flex-row pt-24 px-10 pb-4">
-              <div className="w-2/12 left mr-6">
-                <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
+            <div className="flex flex-col md:flex-row pt-12 md:pt-24 px-4 sm:px-6 md:px-10 pb-4">
+              <div className="w-full md:w-3/12 lg:w-2/12 mr-0 md:mr-6 mb-6 md:mb-0">
+                <div className="bg-white rounded-xl shadow-lg mb-6 px-4 sm:px-6 py-4">
                   <Link
                     to="/admin/dashboard"
                     className="inline-block text-gray-600 hover:text-black my-4 w-full"
@@ -91,7 +91,7 @@ const AdminDashBrd = () => {
                   </Link>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
+                <div className="bg-white rounded-xl shadow-lg px-4 sm:px-6 py-4">
                   <Link className="inline-block text-gray-600 hover:text-black my-4 w-full">
                     <CiCircleCheck />
                   </Link>
@@ -104,10 +104,10 @@ const AdminDashBrd = () => {
                 </div>
               </div>
 
-              <div className="w-10/12">
-                <div className="flex flex-row">
+              <div className="w-full md:w-9/12 ">
+                <div className="flex flex-col lg:flex-row">
                   <div
-                    className="bg-no-repeat bg-red-200 border border-red-300 rounded-xl w-7/12 mr-2 p-6"
+                    className="bg-no-repeat bg-red-200 border border-red-300 rounded-xl w-full lg:w-7/12 mb-4 lg:mb-0 lg:mr-2 p-4 sm:p-6"
                     style={{
                       backgroundImage:
                         "url(https://previews.dropbox.com/p/thumb/AAvyFru8elv-S19NMGkQcztLLpDd6Y6VVVMqKhwISfNEpqV59iR5sJaPD4VTrz8ExV7WU9ryYPIUW8Gk2JmEm03OLBE2zAeQ3i7sjFx80O-7skVlsmlm0qRT0n7z9t07jU_E9KafA9l4rz68MsaZPazbDKBdcvEEEQPPc3TmZDsIhes1U-Z0YsH0uc2RSqEb0b83A1GNRo86e-8TbEoNqyX0gxBG-14Tawn0sZWLo5Iv96X-x10kVauME-Mc9HGS5G4h_26P2oHhiZ3SEgj6jW0KlEnsh2H_yTego0grbhdcN1Yjd_rLpyHUt5XhXHJwoqyJ_ylwvZD9-dRLgi_fM_7j/p.png?fv_content=true&size_mode=5)",
@@ -127,17 +127,14 @@ const AdminDashBrd = () => {
                     </div>
                     <Link
                       to="/admin/showAllUsers"
-                      className="flex items-center justify-center w-4/6 px-4 py-4 mt-8 text-base font-medium leading-6 text-gray-500 whitespace-no-wrap bg-white border-2 border-transparent rounded-full shadow-sm hover:bg-transparent hover:text-white hover:border-white focus:outline-none"
+                      className="flex items-center justify-center w-full lg:w-4/6 px-4 py-4 mt-4 lg:mt-8 text-sm lg:text-base font-medium leading-6 text-gray-500 whitespace-no-wrap bg-white border-2 border-transparent rounded-full shadow-sm hover:bg-transparent hover:text-white hover:border-white focus:outline-none"
                     >
                       All users
                     </Link>
-                    {/* <span className="bg-red-300 text-xl text-white inline-block rounded-full mt-12 px-8 py-2">
-                      <strong>01:51</strong>
-                    </span> */}
                   </div>
 
                   <div
-                    className="bg-no-repeat bg-orange-200 border border-orange-300 rounded-xl w-5/12 ml-2 p-6"
+                    className="bg-no-repeat bg-orange-200 border border-orange-300 rounded-xl w-full lg:w-5/12 mt-4 lg:mt-0 p-4 sm:p-6"
                     style={{
                       backgroundImage:
                         "url(https://previews.dropbox.com/p/thumb/AAuwpqWfUgs9aC5lRoM_f-yi7OPV4txbpW1makBEj5l21sDbEGYsrC9sb6bwUFXTSsekeka5xb7_IHCdyM4p9XCUaoUjpaTSlKK99S_k4L5PIspjqKkiWoaUYiAeQIdnaUvZJlgAGVUEJoy-1PA9i6Jj0GHQTrF_h9MVEnCyPQ-kg4_p7kZ8Yk0TMTL7XDx4jGJFkz75geOdOklKT3GqY9U9JtxxvRRyo1Un8hOObbWQBS1eYE-MowAI5rNqHCE_e-44yXKY6AKJocLPXz_U4xp87K4mVGehFKC6dgk_i5Ur7gspuD7gRBDvd0sanJ9Ybr_6s2hZhrpad-2WFwWqSNkh/p.png?fv_content=true&size_mode=5)",
@@ -157,21 +154,22 @@ const AdminDashBrd = () => {
                     </p>
                     <Link
                       to="/admin/requests"
-                      className="flex items-center justify-center px-4 py-4 mt-8 text-base font-medium leading-6 text-gray-500 whitespace-no-wrap bg-white border-2 border-transparent rounded-full shadow-sm hover:bg-transparent hover:text-white hover:border-white focus:outline-none"
+                      className="flex items-center justify-center px-4 py-4 mt-4 lg:mt-8 text-sm lg:text-base font-medium leading-6 text-gray-500 whitespace-no-wrap bg-white border-2 border-transparent rounded-full shadow-sm hover:bg-transparent hover:text-white hover:border-white focus:outline-none"
                     >
                       Teacher requests
                     </Link>
                   </div>
                 </div>
-                <div className="flex flex-row h-64 mt-6">
-                  <div className="bg-blue-400 rounded-xl shadow-lg px-6 py-4 w-4/12">
+
+                <div className="flex flex-col md:flex-row h-auto md:h-64 mt-6">
+                  <div className="bg-blue-400 rounded-xl shadow-lg px-4 sm:px-6 py-4 mb-4 md:mb-0 w-full md:w-4/12">
                     Orders: {stats.orders}
                   </div>
-                  <div className="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
+                  <div className="bg-white rounded-xl shadow-lg px-4 sm:px-6 py-4 mb-4 md:mb-0 md:mx-6 w-full md:w-4/12">
                     Courses: {stats.products}
                   </div>
-                  <div className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
-                    Revenue: $ {stats.revenue}
+                  <div className="bg-white rounded-xl shadow-lg px-4 sm:px-6 py-4 w-full md:w-4/12">
+                    Revenue: ${stats.revenue}
                   </div>
                 </div>
               </div>
