@@ -1,16 +1,26 @@
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { IoHomeOutline } from "react-icons/io5";
 import { HiUsers } from "react-icons/hi2";
 import { TbUsersPlus as TeacherReq } from "react-icons/tb";
-import { CiCircleCheck } from "react-icons/ci";
-const AdminDashBrd = () => {
-  const { user } = useAuth();
-  const axiosSecure = useAxiosPrivate();
+import { FiLogOut as LogoutIcon } from "react-icons/fi";
+import toast from "react-hot-toast";
 
+const AdminDashBrd = () => {
+  const { user, logOut } = useAuth();
+  const axiosSecure = useAxiosPrivate();
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logged Out successfully");
+        navigate("/");
+      })
+      .catch();
+  };
   //   useEffect(() => {
   //     fetch(`${import.meta.env.VITE_API_URL}/api/v1/admin/showStats`)
   //       .then((res) => res.json())
@@ -82,25 +92,41 @@ const AdminDashBrd = () => {
                     className="inline-block text-gray-600 hover:text-black my-4 w-full"
                   >
                     <HiUsers className="text-2xl lg:text-4xl" />
+                    <span className="hidden lg:block">Show users</span>
                   </Link>
                   <Link
                     to="/admin/requests"
                     className="inline-block text-gray-600 hover:text-black my-4 w-full"
                   >
                     <TeacherReq className="text-2xl lg:text-4xl" />
+                    <span className="hidden lg:block">Teacher requests</span>
                   </Link>
                 </div>
 
                 <div className="bg-white rounded-xl shadow-lg px-4 sm:px-6 py-4">
-                  <Link className="inline-block text-gray-600 hover:text-black my-4 w-full">
-                    <CiCircleCheck />
+                  <Link
+                    to="/myCart"
+                    className="inline-block text-gray-600 hover:text-black my-4 w-full"
+                  >
+                    <span className="text-md">My Cart</span>
                   </Link>
-                  <Link className="inline-block text-gray-600 hover:text-black my-4 w-full">
-                    <CiCircleCheck />
+                  <Link
+                    to="/myPaymentHistory"
+                    className="inline-block text-gray-600 hover:text-black my-4 w-full"
+                  >
+                    <span className="text-md">My payment history</span>
                   </Link>
-                  <Link className="inline-block text-gray-600 hover:text-black my-4 w-full">
-                    <CiCircleCheck />
+                  <Link
+                    to="/myPublishedCourses"
+                    className="inline-block text-gray-600 hover:text-black my-4 w-full"
+                  >
+                    <span className="text-md">My published courses</span>
                   </Link>
+                  <div>
+                    <button onClick={handleLogOut} className="btn bg-red-400">
+                      <LogoutIcon />
+                    </button>
+                  </div>
                 </div>
               </div>
 
