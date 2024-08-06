@@ -2,6 +2,9 @@
 
 This repository contains the client-side code for the WeLearnBd project, a Learning Management System (LMS) built with the MERN stack. This project enables users to buy and sell courses, with features like an Admin panel, teacher management, and user role management.
 
+## User credentials: 
+honda@user.com : Hond!@#RT45
+
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
