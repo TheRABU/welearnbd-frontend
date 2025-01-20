@@ -6,12 +6,14 @@ const useFetchSingleCourse = () => {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/api/v1/courses/${id}`
         );
+
         setDetails(response.data);
       } catch (error) {
         console.log(error.message);

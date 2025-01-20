@@ -18,7 +18,7 @@ const TopCourseSection = () => {
         setCourses(filteredPopularCourses);
       } catch (error) {
         console.log(error.message);
-        throw new error();
+        throw new Error();
       }
     };
     fetchCourses();
