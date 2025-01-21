@@ -238,7 +238,7 @@ const SignUp = () => {
                         className="absolute mt-4 ml-2 cursor-pointer"
                         onClick={() => setShowPass(!showPass)}
                       >
-                        {showPass ? <FaEye /> : <FaEyeSlash />}
+                        {showPass ? <FaEyeSlash /> : <FaEye />}
                       </span>
 
                       {/* <FaEye
